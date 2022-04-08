@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 重置样式表 -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <!-- 本页面样式表 -->
+    <link rel="stylesheet" href="/css/Signin.css">
+    <!-- 引入图标 -->
+    <link rel="shortcut icon" href="/aaa.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- logo 和 文字 -->
+    <div class="signin">
+        <div class="signin_top clearfix">
+            <div class="left">
+                <img src="./images/logo.jpg" alt="logo">
+            </div>
+            <div class="right">
+                欢迎登录
+            </div>
+        </div>
+    </div>
+
+    <!-- 登录 和 背景图 -->
+    <div class="signin_banner">
+        <img src="./images/login_banner.jpg" alt="213">
+        <div class="box">
+            <div class="neir">
+                <div class="top">登录</div>
+                <div class="center">
+                    <form action="/login" method="POST">
+                        <ul>
+                            <li class="clearfix">
+                                <span></span>
+                                <input type="text" placeholder="手机号/会员名/邮箱" name="username">
+                            </li>
+                            <li class="clearfix">
+                                <span></span>
+                                <input type="password" placeholder="密码" name="password">
+                            </li>
+                            <li>
+                                <input type="text" placeholder="验证码" name="yzm">
+                                <img src="./images/yzm_03.jpg" alt="12">
+                            </li>
+                            <li>
+                                <input type="submit" value="登录" style="color: #fff;font-size: 20px;">
+                            </li>
+                            <li>
+                                <input type="checkbox" checked>
+                                <span>自动登录</span>
+                                <i>忘记密码？</i>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+            <div class="bottom clearfix">
+                <div class="qq">QQ</div>
+                <div class="wb">微博</div>
+                <div class="wx">微信</div>
+                <div class="zc">
+                    <a href="/register">立即注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="foot_2">
+        <div class="foot_2_wz">
+            <span>Copyright@2010-2020 小U商城 版权所有 保留一切权力</span>
+            <br>
+            <span>京ICP备10218183 京ECP证161188号 京公网安备 11010802020593号 出版经营许可证新出发京批字第直130052号</span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>首页</title>
+</head>
+
+<body>
+  <%- include("./header.html",{title:"我是头部123123"})%>
+  <h1>首页</h1>
+  <ul>
+      <% for(var i = 0;i<names.length;i++) {%>
+        <li><%= names[i]%></li>
+      <%}%>
+  </ul>
+</body>
+
+</html>

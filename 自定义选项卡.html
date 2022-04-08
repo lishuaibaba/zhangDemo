@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap>div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            display: none;
+        }
+
+        .active {
+            display: block !important;
+        }
+
+        .show {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <input type="text">
+        <button>生成</button>
+    </div>
+    <div class="box">
+        <div class="wrap">
+            <button class="show">按钮1</button>
+            <button>按钮2</button>
+            <button>按钮3</button>
+            <div class="active">按钮1</div>
+            <div>按钮2</div>
+            <div>按钮3</div>
+        </div>
+        <div></div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        // 面向对象选项卡
+        function fn1(cls) {
+            var wrap = $(cls);
+            var XuanXiang = function (parent) {
+                this.divS = $(parent).children("div");
+                this.btnS = $(parent).children("button");
+                this.init();
+            }
+
+            XuanXiang.prototype.init = function () {
+                var _this = this;
+                $(this.btnS).click(function () {
+                    var i = $(this).index();
+                    $(_this.divS).each(function (index, item) {
+                        $(item).removeClass("active");
+                    })
+                    $(_this.btnS).each(function (index, item) {
+                        $(item).removeClass("show");
+                    })
+                    $(this).addClass("show");
+                    $($(_this.divS)[i]).addClass("active");
+                })
+            }
+
+            var aaa = $(".box").children('div');
+
+            $(aaa).each(function (index, item) {
+                var item = new XuanXiang(wrap);
+            })
+        }
+        fn1(".wrap");
+
+        $(".top>button").click(() => {
+            var val = $(".top>input").val();
+            var wrapLength = $(".box").children("div").length;
+            var div = `<div class="wrap${wrapLength}">`;
+            for (var i = 0; i < val; i++) {
+                div += `<button class="${i == 0 ? 'show' : ''}">按钮${i + 1}</button>`
+            }
+            for (var j = 0; j < val; j++) {
+                div += `<div class="${j == 0 ? 'active' : ''}" style="width: 100px;height: 100px;border: 1px solid red;display: none;">按钮${j + 1}</div>`
+            }
+            div += `</div>`;
+            $(".box").append(div);
+
+            console.log($(`.wrap${wrapLength}`));
+            fn1(`.wrap${wrapLength}`);
+        })
+
+        var obj = {};
+
+        for (var i = 0; i < 26; i++) {
+            obj[String.fromCharCode(65 + i)] = [];
+        }
+        console.log(obj);
+
+
+        function fnaaa(x,y,...args){
+            console.log(args);
+        }
+        fnaaa(1,2,3,4,5,6,7,8)
+    </script> 
+</body>
+
+</html>

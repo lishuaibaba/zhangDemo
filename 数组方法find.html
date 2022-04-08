@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <select id="mySelect">
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+
+        <select id="myInfo">
+
+        </select>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var objInfo = [
+            {
+                code: 200,
+                id: 8,
+                infoChildren: [18, 2132, 3, 4, 5, 6]
+            }, {
+                code: 200,
+                id: 9,
+                infoChildren: [19, 2, 3312, 4, 5, 6]
+            }, {
+                code: 200,
+                id: 10,
+                infoChildren: [112310, 2312, 3, 4, 5, 6]
+            }, {
+                code: 200,
+                id: 11,
+                infoChildren: [112311, 2132, 3, 4, 5, 6]
+            }, {
+                code: 200,
+                id: 12,
+                infoChildren: [112312, 2312, 3, 3, 4, 5, 6]
+            },
+        ];
+
+        var seindex = '';
+        $("#mySelect").change(function () {
+            seindex = $("#mySelect").val();
+            var a = objInfo.find((item, index) => {
+                return item.id == seindex;
+            }).infoChildren;
+            auto(a);
+        })
+
+
+        function auto(arr) {
+            var str = ``;
+            arr.forEach((item, index) => {
+                str += `<option value="index">${item}</option>`
+            });
+
+            $("#myInfo").html(str);
+        }
+    </script>
+</body>
+
+</html>

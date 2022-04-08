@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap>div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            display: none;
+        }
+
+        .wrap>.active {
+            display: block;
+        }
+
+        .show {
+            background: red;
+        }
+
+
+        .wrap1>div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            display: none;
+        }
+
+        .wrap1>.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <button class="show">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <div class="active">aaa</div>
+        <div>bbb</div>
+        <div>ccc</div>
+    </div>
+
+    <div class="wrap1">
+        <button class="show">按钮一</button>
+        <button>按钮二</button>
+        <button>按钮三</button>
+        <button>按钮四</button>
+        <button>按钮五</button>
+        <div class="active">aaa</div>
+        <div>bbb</div>
+        <div>ccc</div>
+        <div>ddd</div>
+        <div>fff</div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        // 实例创建对象
+        function fn1() {
+            var obj = new Object();
+
+            obj.name = "张三";
+            obj.sex = "男";
+            obj.say = function () {
+                console.log("一gi我里giaogiao");
+            }
+            console.log(obj);
+            obj.say();
+        }
+
+        // 工厂模式创建对象
+
+        function fn2() {
+            var objFun = function (name, sex, age) {
+                var obj = new Object();
+                obj.name = name;
+                obj.sex = sex;
+                obj.age = age;
+                return obj;
+            }
+
+            var zs = objFun("张三", 'pure man', 18)
+            var zxs = objFun("张先生", 'pure man', 18)
+            console.log(zs, zxs);
+        }
+        // fn2();
+
+
+        // 构造函数 
+        function fn3() {
+            var ObjFun = function (name, sex, age) {
+                console.log(this);
+                this.name = name;
+                this.sex = sex;
+                this.age = age;
+            };
+
+            var a = new ObjFun("张", '123', 123);
+            console.log(ObjFun.prototype);
+        }
+        // fn3();
+
+
+        // 原型创建函数
+
+        function fn5() {
+            var C = function () {
+
+            }
+            C.prototype.bolle = "ujiuye";
+            var obj = new C();
+            console.log(obj.bolle);
+        }
+        // fn5();
+
+
+
+        // 混合式创建
+
+        function fn6() {
+            var OuserPonse = function (name, age, sex) {
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+            OuserPonse.prototype.bolle = "ujiuyea";
+
+            var lz = new OuserPonse("老张", 18, 'pure man');
+            console.log(lz, lz.bolle);
+        }
+        // fn6();
+
+
+
+        function fn7() {
+            var FeijiFun = function (src, left, top) {
+                this.src = src;
+                this.left = left;
+                this.top = top;
+                this.init();
+            }
+            FeijiFun.prototype.init = function () {
+                console.log('进去了');
+            }
+
+            var ff1 = new FeijiFun("./sss", 200, 200);
+        }
+        // fn7();
+
+
+
+
+        // 面向对象选项卡
+        function fn8() {
+            var wrap = $(".wrap");
+            var wrap1 = $(".wrap1");
+            var XuanXiang = function (parent) {
+                this.divS = $(parent).children("div");
+                this.btnS = $(parent).children("button");
+                this.init();
+            }
+
+            XuanXiang.prototype.init = function () {
+                var _this = this;
+                $(this.btnS).click(function () {
+                    var i = $(this).index();
+                    $(_this.divS).each(function (index, item) {
+                        $(item).removeClass("active");
+                    })
+                    $(_this.btnS).each(function (index, item) {
+                        $(item).removeClass("show");
+                    })
+                    $(this).addClass("show");
+                    $($(_this.divS)[i]).addClass("active");
+                })
+            }
+
+            var l1 = new XuanXiang(wrap);
+            var l2 = new XuanXiang(wrap1);
+        }
+        fn8();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            width: 1400px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left {
+            width: 500px;
+        }
+
+        .left_text {
+            width: 650px;
+            height: 400px;
+            border: 1px solid #000;
+            overflow-y: auto;
+        }
+
+        textarea {
+            width: 646px;
+            height: 150px;
+        }
+
+        .pa {
+            width: 646px;
+            position: relative;
+        }
+
+        .left ul {
+            padding: 40px;
+        }
+
+        .left ul>li {
+            width: 100%;
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .left ul>li>span:nth-child(1) {
+            display: inline-block;
+            width: 14%;
+            height: 50px;
+            background: pink;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        .left ul>li>span:nth-child(2) {
+            display: inline-block;
+            width: 86%;
+            height: 100%;
+            background: lightblue;
+            font-size: 20px;
+            padding: 0px 10px;
+            color: #fff;
+            margin-left: 30px;
+        }
+
+        .li_right1 {
+            display: inline-block !important;
+            width: 86% !important;
+            height: 100% !important;
+            line-height: inherit !important;
+            background: lightblue !important;
+            font-size: 20px !important;
+            padding: 0px 10px !important;
+            color: #fff !important;
+            margin-left: 30px !important;
+            text-align: left !important;
+        }
+
+        .li_right2 {
+            display: inline-block !important;
+            width: 14% !important;
+            height: 50px !important;
+            background: pink !important;
+            text-align: center !important;
+            line-height: 50px !important;
+            font-size: 20px !important;
+            color: #000 !important;
+        }
+
+        .left button {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="left_text">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="pa">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <button>发送</button>
+            </div>
+        </div>
+
+        <div class="left">
+            <div class="left_text">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="pa">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <button>发送</button>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        let arr = [];
+        $("textarea").eq(0).keydown(function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                leftAuao(this);
+            }
+        })
+        $("textarea").eq(1).keydown(function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                rightAuao(this);
+            }
+        })
+
+
+        function leftAuao(_that) {
+            arr.push({ id: "left", val: $(_that).val() })
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].id !== "left") {
+                    str += `<li>
+                        <span>头像</span>
+                        <span>${arr[i].val}</span>
+                    </li>`
+                } else {
+                    str += `<li>
+                        <span class="li_right1">${arr[i].val}</span>
+                        <span class="li_right2">头像</span>
+                    </li>`
+                }
+            }
+            $(".left").eq(0).children().children("ul").html(" ")
+            $(".left").eq(0).children().children("ul").append(str);
+            $(_that).val("")
+            auto();
+        };
+
+
+        function auto() {
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].id == "left") {
+                    str += `<li>
+                        <span>头像</span>
+                        <span>${arr[i].val}</span>
+                    </li>`
+                } else {
+                    str += `<li>
+                        <span class="li_right1">${arr[i].val}</span>
+                        <span class="li_right2">头像</span>
+                    </li>`
+                }
+            }
+            $(".left").eq(1).children().children("ul").html(" ")
+            $(".left").eq(1).children().children("ul").append(str);
+            $("textarea").eq(0).val("");
+        }
+
+        function auto2() {
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].id == "right") {
+                    str += `<li>
+                        <span>头像</span>
+                        <span>${arr[i].val}</span>
+                    </li>`
+                } else {
+                    str += `<li>
+                        <span class="li_right1">${arr[i].val}</span>
+                        <span class="li_right2">头像</span>
+                    </li>`
+                }
+            }
+            $(".left").eq(0).children().children("ul").html(" ")
+            $(".left").eq(0).children().children("ul").append(str);
+            $("textarea").eq(1).val("");
+        }
+
+        function rightAuao(_that) {
+            arr.push({ id: "right", val: $(_that).val() })
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].id == "left") {
+                    str += `<li>
+                        <span>头像</span>
+                        <span>${arr[i].val}</span>
+                    </li>`
+                } else {
+                    str += `<li>
+                        <span class="li_right1">${arr[i].val}</span>
+                        <span class="li_right2">头像</span>
+                    </li>`
+                }
+            }
+            $(".left").eq(1).children().children("ul").html(" ")
+            $(".left").eq(1).children().children("ul").append(str);
+            $(_that).val("")
+            auto2();
+        }
+
+        $("button").eq(0).click(function () {
+            leftAuao($("textarea").eq(0));
+        })
+        $("button").eq(1).click(function () {
+            rightAuao($("textarea").eq(1));
+        })
+    </script>
+</body>
+
+</html>

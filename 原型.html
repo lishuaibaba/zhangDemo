@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字面量创建
+        // let obj = {
+        //     "name":"奥里给",
+        //     say(){
+        //         console.log("hello word");
+        //     }
+        // }
+        // obj.say();
+
+        // 构造函数
+        // let obj = new Object();
+
+        // obj.name = "123";
+        // obj.age = "18"
+
+        // console.log(obj);
+
+
+        // 工厂模式
+
+        // let parment = function(name,age){
+        //     let obj = new Object();
+        //     obj.name = name;
+        //     obj.age = age;
+
+        //     return obj;
+        // }
+
+
+        // let a = parment("老张",18);
+        // let b = parment("老张1",18);
+        // console.log(a,b);
+
+        // 原型创建
+        
+        function Gouzao(name,age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Gouzao.prototype.belong = "ujiuye";
+
+        let lz = new Gouzao("老张",18);
+        console.log(lz);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <script src="./jquery-2.1.1.min.js"></script>
+    <style>
+        .main {
+            width: 930px;
+            height: 320px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img_ul {
+            display: flex;
+            position: absolute;
+        }
+
+        img {
+            height: 320px;
+        }
+
+        .span_img {
+            width: 300px;
+            display: flex;
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            color: #fff;
+            margin-left: -100px;
+        }
+
+        .span_img>li {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: lightblue;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+
+        .span_img>.active {
+            background: pink;
+        }
+
+        .main>span {
+            display: block;
+            width: 60px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            color: #fff;
+            font-size: 26px;
+            line-height: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .main>span:nth-child(3) {
+            left: 0px;
+            top: 100px;
+        }
+
+        .main>span:nth-child(4) {
+            right: 0px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul class="img_ul">
+
+        </ul>
+        <ul class="span_img">
+
+        </ul>
+
+        <span class="left">left</span>
+        <span class="right">right</span>
+    </div>
+    <script>
+        let num = 0;
+        let numSpan = 0;
+        let time = null;
+
+
+
+
+        function a() {
+            let p = new Promise((resolve, reject) => {
+                $.ajax({
+                    url: "./lunbotuwu.json",
+                    type: "get",
+                    success(res) {
+                        resolve(res.result.data);
+                    }
+                })
+            })
+            return p;
+        }
+
+        async function img_lun() {
+            let fn_img = await a();
+            let str = ``;
+            let activeSpan = ``;
+            $(fn_img).each((index, item) => {
+                str += `<li><img src="${item.img}" alt=""></li>`;
+            })
+            for (let i = 0; i < fn_img.length - 1; i++) {
+                if (i == 0) {
+                    activeSpan += `<li class="active">${i + 1}</li>`;
+                } else {
+                    activeSpan += `<li>${i + 1}</li>`;
+                }
+            }
+            $(".img_ul").append(str);
+            $(".span_img").append(activeSpan);
+
+            $(".img_ul").css({
+                width: 930 * $(".img_ul>li").length
+            })
+
+            auto();
+            clickz();
+        };
+        img_lun();
+
+
+        function auto() {
+            time = setInterval(() => {
+                num += 930;
+                numSpan++;
+                auto_img();
+            }, 2000);
+        }
+
+        $(".main").mouseover(function () {
+            clearInterval(time);
+        })
+        $(".main").mouseout(function () {
+            auto();
+        })
+
+
+        $(".right").click(function () {
+            num += 930;
+            numSpan++;
+            auto_img();
+        })
+
+        $(".left").click(function () {
+            num -= 930;
+            numSpan--;
+            if (num < 0) {
+                $(".img_ul").css({
+                    left: -($(".img_ul>li").length - 1) * 930
+                });
+                num = ($(".img_ul>li").length - 2) * 930;
+            }
+            if (numSpan < 0) {
+                numSpan = $(".span_img>li").length - 1;
+            }
+            $(".span_img>li").removeClass("active");
+            $(".span_img>li").eq(numSpan).addClass("active");
+            $(".img_ul").animate({
+                left: -num
+            });
+        })
+
+
+        function auto_img() {
+            if (num > ($(".img_ul>li").length - 1) * 930) {
+                $(".img_ul").css({
+                    left: 0
+                });
+                num = 930;
+            }
+            if (numSpan > $(".span_img>li").length - 1) {
+                numSpan = 0;
+            }
+            $(".span_img>li").removeClass("active");
+            $(".span_img>li").eq(numSpan).addClass("active");
+            $(".img_ul").animate({
+                left: -num
+            });
+        }
+
+
+        function clickz() {
+            $(".span_img>li").click(function () {
+                num = $(this).index() * 930;
+                numSpan = $(this).index();
+                $(".span_img>li").removeClass("active");
+                $(".span_img>li").eq(numSpan).addClass("active");
+                $(".img_ul").animate({
+                    left: -num
+                });
+            })
+        }
+    </script>
+</body>
+
+</html>

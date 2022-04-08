@@ -1,0 +1,237 @@
+
+/* log和文字 */
+
+.signin{
+    width: 1199px;
+    margin: 0px auto;
+    height: 108px;
+}
+
+.signin .signin_top .left{
+    float: left;
+    margin-top: 38px;
+}
+
+.signin .signin_top .right{
+    float: left;
+    width: 138px;
+    height: 52px;
+    border-left: 1px solid #e8e8e8;
+    font-size: 24px;
+    color: #646464;
+    text-align: center;
+    line-height: 52px;
+    margin-top: 34px;
+    margin-left: 25px;
+}
+
+
+
+/* 背景和登录 */
+.signin_banner{
+    position: relative;
+}
+.signin_banner img{
+    width: 100%;
+    height: 450px;
+}
+.signin_banner .box{
+    width: 350px;
+    height: 377px;
+    background: #fff;
+    position: absolute;
+    right: 303px;
+    top: 35px;
+    border-top: 3px solid #ef6a0b;
+}
+.signin_banner .box .neir{
+    padding: 0px 35px;
+}
+.signin_banner .box .neir .top{
+    color: #292929;
+    font-size: 18px;
+    height: 68px;
+    line-height: 68px;
+}
+.signin_banner .box .neir .center form ul li{
+    margin-top: 14px;
+
+}
+.signin_banner .box .neir .center form ul li:nth-child(1) span{
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: #fef9f6 url(../images/xfeng.png) no-repeat center;
+    background-size: 18px;
+    border: 1px solid #f46a11;
+    float: left;
+}
+.signin_banner .box .neir .center form ul li:nth-child(1) input{
+    width: 230px;
+    height: 34px;
+    border: 1px solid #f46a11;
+    border-left: none;
+    float: left;
+    padding-left: 13px;
+}
+
+
+.signin_banner .box .neir .center form ul li:nth-child(2) span{
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: #f6f6f6 url(../images/suo.png) no-repeat center;
+    background-size: 18px;
+    border: 1px solid #d8d8d8;
+    float: left;
+}
+.signin_banner .box .neir .center form ul li:nth-child(2) input{
+    width: 230px;
+    height: 34px;
+    border: 1px solid #d8d8d8;
+    border-left: none;
+    float: left;
+    padding-left: 13px;
+}
+.signin_banner .box .neir .center form ul li:nth-child(3){
+   margin-bottom: 24px;
+}
+.signin_banner .box .neir .center form ul li:nth-child(3) input{
+    width: 186px;
+    height: 34px;
+    border: 1px solid #d8d8d8;
+    padding-left: 14px;
+}
+.signin_banner .box .neir .center form ul li:nth-child(3) img{
+    width: 48px;
+    height: 19px;
+    position: relative;
+    top: 10px;
+    left: 14px;
+}
+.signin_banner .box .neir .center form ul li:nth-child(4) {
+    width: 286px;
+    height: 40px;
+    background: #f26b11;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    border-radius: 4px;
+    position: relative;
+    left: -3px;
+
+}
+
+
+.signin_banner .box .neir .center form ul li:nth-child(5) {
+    position: relative;
+}
+.signin_banner .box .neir .center form ul li:nth-child(5) input{
+    vertical-align: middle;
+}
+.signin_banner .box .neir .center form ul li:nth-child(5) span{
+    font: 12px '宋体';
+    color: #626262;
+}
+.signin_banner .box .neir .center form ul li:nth-child(5) i{
+    position: absolute;
+    right: 0px;
+    top: -1px;
+    font: 12px '宋体';
+    color: #626262;
+}
+.signin_banner .box .neir .center form ul li:nth-child(1){
+    margin-top: 0px;
+}
+
+
+.signin_banner .box .bottom{
+    width: 350px;
+    height: 51px;
+    border-top: 1px solid #efefef;
+    margin-top: 29px;
+}
+
+.signin_banner .box .bottom .qq{
+    width: 42px;
+    height: 51px;
+    float: left;
+    background: url(../images/qq.png) no-repeat -5px 17px;
+    background-size: 16px;
+    text-align: center;
+    margin-left: 30px;
+    cursor: pointer;
+    font: 12px/51px '宋体';
+    color: #616161;
+}
+.signin_banner .box .bottom .wb{
+    width: 63px;
+    height: 51px;
+    float: left;
+    text-align: center;
+    background: url(../images/wb.png) no-repeat 2px 17px;
+    background-size: 16px;
+    margin-left: 6px;
+    cursor: pointer;
+    font: 12px/51px '宋体';
+    color: #616161;
+}
+.signin_banner .box .bottom .wx{
+    width: 63px;
+    height: 51px;
+    float: left;
+    text-align: center;
+    background: url(../images/wx.png) no-repeat 2px 17px;
+    background-size: 16px;
+    cursor: pointer;
+    font: 12px/51px '宋体';
+    color: #616161;
+}
+.signin_banner .box .bottom .zc{
+    height: 51px;
+    float: right;
+    font: 16px/51px '宋体';
+    margin-right: 32px;
+}
+.signin_banner .box .bottom .zc a{
+    color: #f16a0e;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 底部 */
+.foot_2{
+    width: 100%;
+    height: 120px;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.foot_2 .foot_2_wz{
+    font: 12px "宋体";
+    color: #575757;
+    text-align: center;
+    cursor: pointer;
+}
+.foot_2 .foot_2_wz span:nth-child(1){
+    display: inline-block;
+    margin-top: 44px;
+    margin-bottom: 14px;
+}

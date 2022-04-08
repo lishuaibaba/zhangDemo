@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        body {
+            font-size: 26px;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0px auto;
+            margin-top: 100px;
+        }
+
+        ul span {
+            display: block;
+        }
+
+        ul span:nth-child(2) {
+            width: 500px;
+        }
+
+        ul span:nth-child(1) {
+            width: 500px;
+            margin-top: 30px;
+        }
+
+        .ul_box div {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .add {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: lightblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="add">刷新一下</div>
+        <ul class="content">
+
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        function xiaohua() {
+            let promi = new Promise((resolve, reject) => {
+                $.ajax({
+                    url: "./xiaohua.json",
+                    type: "get",
+                    jsonp: "json",
+                    success(res) {
+                        resolve(res);
+                    }
+                })
+            })
+            return promi;
+        }
+
+        // 处理笑话数据回来
+        async function auto() {
+            let obj = await xiaohua();
+            xiaohuazhanshi(obj.result.data);
+        }
+        auto();
+
+        // 处理笑话展示
+        function xiaohuazhanshi(arr) {
+            console.log(arr);
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                str += `<li>
+                    <div class="ul_box">
+                        <span>时间：${arr[i].updatetime}</span>
+                        <div><i>内容：</i><span>${arr[i].content}</span></div>
+                        </div>
+                        </li>`
+            }
+
+            $(".content").append(str);
+        }
+
+        $(".add").click(function () {
+
+        })
+    </script>
+</body>
+
+</html>

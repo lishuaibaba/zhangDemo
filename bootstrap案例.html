@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css">
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script src="./Bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        header {
+            margin-top: 30px;
+        }
+
+        header>form>.form-group {
+            margin-bottom: 20px !important;
+        }
+
+        main {
+            margin-top: 30px;
+        }
+
+        tbody>tr {
+            cursor: pointer;
+        }
+
+        .login-main {
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .activeShow {
+            display: none;
+        }
+
+        .login {
+            width: 500px;
+            position: absolute;
+            background: #fff;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn btn-primary add">添加</button>
+        <main>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>账号</th>
+                        <th>密码</th>
+                        <th>爱好</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </main>
+        <button class="btn btn-success removeall">删除所选行</button>
+    </div>
+    <div class="login-main activeShow">
+        <div class="login">
+            <header>
+                <form class="form-inline">
+                    <div class="form-group col-md-12 col-md-offset-3">
+                        <label class="sr-only" for="username">姓名</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">姓名</div>
+                            <input type="text" class="form-control username" id="username" placeholder="请输入姓名">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-md-offset-3">
+                        <label class="sr-only" for="user">账号</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">账号</div>
+                            <input type="text" class="form-control user" id="user" placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-md-offset-3">
+                        <label class="sr-only" for="pass">密码</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">密码</div>
+                            <input type="text" class="form-control pass" id="pass" placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-md-offset-3">
+                        <div class="input-group">
+                            <div class="input-group-addon" style="border-right: 1px solid #ccc;">性别</div>
+                            <label class="radio-inline" style="margin-left: 20px;">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-md-offset-3">
+                        <div class="input-group">
+                            <div class="input-group-addon" style="border-right: 1px solid #ccc;">爱好</div>
+                            <label class="checkbox-inline" style="margin-left: 10px;">
+                                <input type="checkbox" id="inlineCheckbox1" value="打游戏"> 打游戏
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox2" value="写代码"> 写代码
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="睡觉"> 睡觉
+                            </label>
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group col-md-offset-5">
+                    <button class="btn btn-primary btn_bc">保存</button>
+                    <button class="btn btn-primary btn_xg">修改</button>
+                    <button class="btn btn-primary btn_qs">取消</button>
+                </div>
+            </header>
+        </div>
+    </div>
+    <script>
+        let obj = {
+            username: "",
+            user: "",
+            pass: "",
+            sex: "",
+            treeArr: []
+        };
+
+        let arr = [
+            {
+                username: "张三",
+                user: "zhangsan",
+                pass: "123456",
+                sex: "男",
+                treeArr: ["打游戏,吃饭,睡觉"]
+            },
+            {
+                username: "李四",
+                user: "lisi",
+                pass: "123456",
+                sex: "女",
+                treeArr: ["打游戏"]
+            }
+        ];
+        let show = true;
+
+        let xgIndex = null;
+
+
+        // 点击添加
+        $(".add").click(function () {
+            // 让添加模块显示
+            show = true;
+            showAdd();
+            $(".login-main").removeClass("activeShow");
+        })
+        // 点击取消
+        $(".btn_qs").click(function () {
+            // 让添加模块隐藏
+            $(".login-main").addClass("activeShow");
+        })
+        // 点击保存
+        $(".btn_bc").click(function () {
+            let info = addText();
+            arr.push(info);
+            addTable();
+            // 让添加模块隐藏
+            $(".login-main").addClass("activeShow");
+        })
+
+        $("tbody").on("click", ".del", function () {
+            let idx = $(this).parents("tr").index();
+            console.log(idx);
+            del(idx);
+        })
+
+        $(".removeall").click(function () {
+            $("tbody>tr>td>input").each((index, item) => {
+                if ($(item).prop("checked")) {
+                    let a = $(item).parents("tr").index();
+                    del(a);
+                }
+            })
+        })
+
+        $("tbody").on("click", "input", function () {
+            $("thead>tr>th>input").prop("checked", removeAll())
+        })
+
+        $("thead").on("click", "input", function () {
+            $("tbody>tr>td>input").prop("checked", $(this).prop("checked"))
+        })
+
+        $("tbody").on("click", ".eimp", function () {
+            show = false;
+            showAdd();
+            $(".login-main").removeClass("activeShow");
+            let bianjiObj = arr[$(this).parents("tr").index()];
+            eimpText(bianjiObj, $(this).parents("tr").index());
+        })
+
+        $(".login").on("click", ".btn_xg", function () {
+            arr[xgIndex] = obj;
+            xiugai();
+            addText();
+            addTable();
+        })
+
+        function addText() {
+            eipom();
+            obj.username = $(".username").val();
+            obj.user = $(".user").val();
+            obj.pass = $(".pass").val();
+            obj.sex = "";
+            obj.treeArr = [];
+            if ($("#inlineRadio1").prop("checked")) {
+                obj.sex = "男";
+            } else {
+                obj.sex = "女";
+            };
+            for (let i = 0; i < 3; i++) {
+                if ($(`#inlineCheckbox${i + 1}`).prop("checked")) {
+                    obj.treeArr.push($(`#inlineCheckbox${i + 1}`).val());
+                }
+            }
+            return obj;
+        }
+
+        function addTable() {
+            let str = ``;
+            $(arr).each((index, item) => {
+                str += `<tr>
+                        <td><input type="checkbox"></td>
+                        <td>${index + 1}</td>
+                        <td>${item.username}</td>
+                        <td>${item.sex}</td>
+                        <td>${item.user}</td>
+                        <td>${item.pass}</td>
+                        <td>${item.treeArr}</td>
+                        <td>
+                            <button class="btn btn-primary eimp">编辑</button>
+                            <button class="btn btn-danger del">删除</button>
+                        </td>
+                    </tr>`;
+            })
+            $("tbody").html(" ");
+            $("tbody").append(str);
+        }
+
+        function del(idx) {
+            arr.splice(idx, 1);
+            addTable();
+            autoInput();
+        }
+
+        function removeAll() {
+            let inputAll = [];
+            $("tbody>tr>td>input").each((index, item) => {
+                inputAll.push($(item).prop("checked"));
+            })
+            return inputAll.every(item => item == true)
+        }
+
+        function eipom() {
+            obj = {
+                username: "",
+                user: "",
+                pass: "",
+                sex: "",
+                treeArr: []
+            };
+        }
+
+        function eimpText(info, index) {
+            xgIndex = index;
+            $(".username").val(info.username);
+            $(".user").val(info.user);
+            $(".pass").val(info.pass);
+        }
+
+        function showAdd() {
+            if (show) {
+                $(".btn_bc").css({
+                    display: "inline-block"
+                })
+                $(".btn_xg").css({
+                    display: "none"
+                })
+            } else {
+                $(".btn_bc").css({
+                    display: "none"
+                })
+                $(".btn_xg").css({
+                    display: "inline-block"
+                })
+
+            }
+        }
+
+        function autoInput() {
+            if ($("tbody>tr").length < 1) {
+                $("thead>tr>th>input").prop("checked", false);
+            }
+        }
+        addTable();
+
+
+        function xiugai() {
+            console.log('1');
+        }
+    </script>
+</body>
+
+</html>

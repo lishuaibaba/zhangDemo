@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        function fn1(num) {
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(num + 10)
+                }, 3000)
+            })
+            return p;
+        }
+
+        function fn2(num) {
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(num + 10)
+                }, 3000)
+            })
+            return p;
+        }
+
+
+        async function fun() {
+            let a = await fn1(5);
+            console.log(a);
+            let b = await fn2(a);
+            console.log(b);
+        }
+        fun();
+    </script>
+</body>
+
+</html>

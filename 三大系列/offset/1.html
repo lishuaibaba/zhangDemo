@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .a1{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border: 20px solid #000;
+            margin: 100px;
+            padding: 20px;
+        }
+
+        .a2 {
+            width: 200px;
+            height: 100px;
+            padding: 30px;
+            border: 14px solid #000
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a1">
+        <div class="a2"></div>
+    </div>
+    <script src="../../jquery-2.1.1.min.js"></script>
+    <script>
+        console.log($("div")[1].offsetWidth);//288
+        console.log($("div")[1].offsetHeight);//188
+        console.log($("div")[1].offsetTop);//220 没定位
+        console.log($("div")[1].offsetLeft);//220 没定位
+        console.log($("div")[1].offsetTop);//20 定位的
+        console.log($("div")[1].offsetLeft);//20 定位的
+    </script>
+</body>
+
+</html>

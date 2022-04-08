@@ -1,0 +1,178 @@
+
+/* log和文字 */
+
+.signin{
+    width: 1199px;
+    margin: 0px auto;
+    height: 108px;
+}
+
+.signin .signin_top .left{
+    float: left;
+    margin-top: 38px;
+}
+
+.signin .signin_top .right{
+    float: left;
+    width: 138px;
+    height: 52px;
+    border-left: 1px solid #e8e8e8;
+    font-size: 24px;
+    color: #646464;
+    text-align: center;
+    line-height: 52px;
+    margin-top: 34px;
+    margin-left: 25px;
+}
+
+
+
+/* 注册 */
+
+.register_banner{
+    width: 100%;
+    height: 556px;
+    background: #f6f6f6;
+    position: relative;
+}
+.register_banner .box{
+    width: 750px;
+    height: 479px;
+    background: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    border-top: 3px solid #f76915;
+}
+.register_banner .box .neir{
+    width: 378px;
+    margin: 0px auto;
+}
+.register_banner .box .neir .top{
+    font-size: 28px;
+    color: #353535;
+    text-align: center;
+    height: 89px;
+    line-height: 89px;
+}
+.register_banner .box .neir .center{}
+.register_banner .box .neir .center ul{}
+
+.register_banner .box .neir .center form ul li:nth-child(1) span{
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: #fef9f6 url(../images/xfeng.png) no-repeat center;
+    background-size: 18px;
+    border: 1px solid #f56b12;
+    float: left;
+}
+.register_banner .box .neir .center form ul li:nth-child(1) input{
+    width: 328px;
+    height: 34px;
+    border: 1px solid #f56b12;
+    border-left: none;
+    float: left;
+    padding-left: 13px;
+}
+
+.register_banner .box .neir .center form ul li:nth-child(2) span{
+    display: block;
+    width: 34px;
+    height: 34px;
+    background: #f6f6f6 url(../images/suo.png) no-repeat center;
+    background-size: 18px;
+    border: 1px solid #d8d8d8;
+    float: left;
+}
+.register_banner .box .neir .center form ul li:nth-child(2) input{
+    width: 328px;
+    height: 34px;
+    border: 1px solid #d8d8d8;
+    border-left: none;
+    float: left;
+    padding-left: 13px;
+}
+.register_banner .box .neir .center form ul li:nth-child(1) i,
+.register_banner .box .neir .center form ul li:nth-child(2) i,
+.register_banner .box .neir .center form ul li:nth-child(3) i{
+    display: inline-block;
+    color: #ff6700;
+    font: 12px '宋体';
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+
+
+.register_banner .box .neir .center ul li:nth-child(3) input{
+    width: 206px;
+    height: 34px;
+    border: 1px solid #d9d9d9;
+    padding-left: 10px;
+}
+.register_banner .box .neir .center ul li:nth-child(3) img{
+    padding-right: 80px;
+    vertical-align: middle;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.register_banner .box .neir .center ul li:nth-child(4){
+    width: 384px;
+    height: 44px;
+    background: #f26b11;
+    font-size: 20px;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    position: relative;
+    left: -3px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.register_banner .box .neir .center ul li:nth-child(5){
+    text-align: center;
+    margin-top: 35px;
+}
+.register_banner .box .neir .center ul li:nth-child(5) span{
+    color: #2e2e2e;
+    font: 14px '宋体';
+}
+.register_banner .box .neir .center ul li:nth-child(5) a{
+    color: #fe6007;
+    font: 14px '宋体';
+    padding-left: 8px;
+}
+
+
+
+
+
+
+
+
+
+/* 底部 */
+.foot_2{
+    width: 100%;
+    height: 127px;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.foot_2 .foot_2_wz{
+    font: 12px "宋体";
+    color: #575757;
+    text-align: center;
+    cursor: pointer;
+}
+.foot_2 .foot_2_wz span:nth-child(1){
+    display: inline-block;
+    margin-top: 44px;
+    margin-bottom: 14px;
+}

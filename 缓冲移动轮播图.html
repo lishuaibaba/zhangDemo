@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            width: 950px;
+            height: 200px;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul {
+            width: 3000px;
+            display: flex;
+            position: absolute;
+            left: 0px;
+        }
+
+        li {
+            width: 200px;
+            height: 200px;
+            background: red;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            color: #fff;
+            margin-right: 50px;
+        }
+
+        li:nth-child(1) {
+            background: red;
+        }
+
+        li:nth-child(2) {
+            background: pink;
+        }
+
+        li:nth-child(3) {
+            background: blue;
+        }
+
+        li:nth-child(4) {
+            background: lightblue;
+        }
+
+        li:nth-child(5) {
+            background: lightsalmon;
+        }
+
+        li:nth-child(6) {
+            background: lightskyblue;
+        }
+
+        li:nth-child(7) {
+            background: red;
+        }
+
+        li:nth-child(8) {
+            background: pink;
+        }
+
+        li:nth-child(9) {
+            background: blue;
+        }
+
+        li:nth-child(10) {
+            background: lightblue;
+        }
+
+        li:nth-child(11) {
+            background: lightsalmon;
+        }
+
+        li:nth-child(12) {
+            background: lightskyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li><a href="http://www.baidu.com">1</a></li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <div class="main1"></div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var num = 0;
+        var time = null;
+
+        $("ul").mouseover(function () {
+            clearInterval(time);
+        })
+
+        $("ul").mouseout(function () {
+            time = setInterval(auto, 10);
+        })
+
+        time = setInterval(auto, 10);
+
+        function auto() {
+            num += 1;
+            if (num == (6 * 200) + 300) {
+                num = 0;
+                $("ul").css({ left: -num });
+            }
+            $("ul").css({ left: -num });
+        }
+    </script>
+</body>
+
+</html>

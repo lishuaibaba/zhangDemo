@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V 字型</title>
+    <link rel="stylesheet" href="./img/reset.css">
+
+    <style>
+        #main {
+            position: relative;
+        }
+
+        #main>span {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: red;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text"><button>生成</button>
+    <div id="main"></div>
+
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("button").click(function () {
+            $("#main").html("");
+            var str = ``;
+            var num = Math.floor($("input").val());
+            for (var i = 0; i < num; i++) {
+                if (i < (num / 2)) {
+                    str += `<span style="left:${i * 50}px;top:${i * 50}px">${i + 1}</span>`
+                } else {
+                    str += `<span style="left:${i * 50}px;top:${(num - 1 - i) * 50}px">${i + 1}</span>`
+                }
+            }
+            $("#main").append(str);
+        })
+
+    </script>
+</body>
+
+</html>

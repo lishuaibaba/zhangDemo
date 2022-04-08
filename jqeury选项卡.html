@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        ul{
+            display: flex;
+        }
+        li{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+        .active{
+            background: pink;
+        }
+        .active-block{
+            display: block;
+        }
+
+        div>span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">选项卡1</li>
+        <li>选项卡2</li>
+        <li>选项卡3</li>
+        <li>选项卡4</li>
+        <li>选项卡5</li>
+    </ul>
+
+    <div>
+        <span class="active-block">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("ul>li").click(function(){
+            var index = $(this).index();
+            $("ul>li").each(function(){
+                $(this).removeClass("active");
+                $("span").removeClass("active-block");
+            })
+            $(this).addClass("active");
+            $($("span")[index]).addClass("active-block");
+        })
+    </script>
+</body>
+</html>

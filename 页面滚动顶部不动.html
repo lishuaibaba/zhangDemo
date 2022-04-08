@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .header {
+            width: 100%;
+            height: 50px;
+            background: pink;
+            z-index: 10;
+        }
+
+        .content {
+            position: relative;
+        }
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            min-width: 1000px;
+            z-index: -10;
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            zoom: 1;
+            background-color: rgb(255, 255, 255);
+            background-image: url(https://dss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/895.jpg?2);
+            margin-top: 0px;
+        }
+
+        ul {
+            width: 1100px;
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+
+        li {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            background: lightblue;
+            padding: 0px 30px;
+            cursor: pointer;
+        }
+
+        .main {
+            width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+        }
+
+        .main>.con {
+            width: 1100px;
+        }
+
+        .main>.con {
+            width: 1100px;
+        }
+
+        .main>.con>div {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #000;
+            margin-bottom: 100px;
+        }
+
+        .main>.nana>.fix {
+            width: 200px;
+            height: 1000px;
+            position: fixed;
+            border: 1px solid #000;
+        }
+
+        .nana {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="banner">
+
+        </div>
+        <div class="header">
+            <ul>
+                <li>头部1</li>
+                <li>头部2</li>
+                <li>头部3</li>
+                <li>头部4</li>
+                <li>头部5</li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="nana">
+                <div class="fix">
+                    我是广告
+                </div>
+            </div>
+            <div class="con">
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+                <div>
+                    kljlkasjdlkjklj
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+
+    <script>
+        $(document).scroll(function () {
+            let top = document.documentElement.scrollTop;
+            let header = $(".header")[0].clientHeight;
+            if (top > header) {
+                $(".header").css({
+                    "position": "fixed",
+                    "top": 0,
+                })
+                $(".main>.nana>.fix").css({
+                    "top": 50
+                })
+            } else {
+                $(".header").css({
+                    "position": "relative",
+                    "top": 0,
+                })
+                $(".main>.nana>.fix").css({
+                    "top": 50
+                })
+            }
+        })
+
+
+        // let obj = {
+        //     name: "张三",
+        //     age: "17",
+        //     set: "男",
+        //     text: "hello word"
+        // }
+        // let { name, age, text, set } = obj;
+        // console.log(name);
+        // console.log(age);
+        // console.log(set);
+        // console.log(text);
+
+
+        // const obj1 = {
+        //     name: "张三",
+        //     age: "18"
+        // }
+
+        // obj1.name = "李四"
+        // console.log(obj1);
+
+        // function a(i = 1, j = 5) {
+        //     return i + j
+        // }
+
+        // console.log(a());
+
+
+        var p = new Promise((resolve, reqect) => {
+            setInterval(() => {
+                resolve("哈哈哈")
+            }, 3000)
+        })
+
+        async function aa() {
+            let fn1 = await p.then(res => {
+                console.log(res);
+            });
+            console.log('1');
+        }
+
+        aa();
+    </script>
+</body>
+
+</html>

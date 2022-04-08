@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        div {
+            text-align: center;
+            color: #fff;
+            line-height: 200px;
+            font-size: 120px;
+        }
+
+        div:nth-child(1) {
+            width: 100%;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body style="height: 10000px;">
+    <div>第一块</div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $(document).scroll(function () {
+            var top = Math.floor($(this).scrollTop());
+            console.log(top);
+            if (top > 2000) {
+                $("div").css({ "position": "fixed" })
+                $("div").addClass("animate__fadeIn animate__animated")
+            } else {
+                $("div").css({ "position": "relative" })
+                $("div").removeClass("animate__fadeIn animate__animated")
+            }
+        })
+    </script>
+</body>
+
+</html>

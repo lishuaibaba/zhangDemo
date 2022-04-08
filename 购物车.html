@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            width: 1000px;
+            height: 300px;
+            margin: 30px auto;
+        }
+
+        .main>.ul1 {
+            display: flex;
+        }
+
+        .main>.ul1>li {
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 60px;
+            text-align: center;
+        }
+
+        .ul2 {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .ul2>li {
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .ul2>li:nth-child(3) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .ul2>li:nth-child(3)>div {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 40px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul class="ul1">
+            <li>商品名字</li>
+            <li>单价</li>
+            <li>数量</li>
+            <li>单个商品总价</li>
+            <li>库存</li>
+        </ul>
+
+        <ul class="ul2">
+            <li>笔记本电脑</li>
+            <li>5888</li>
+            <li>
+                <div class="aoo">-</div><input type="text" value="0">
+                <div class="add">+</div>
+            </li>
+            <li>0</li>
+            <li>132123</li>
+        </ul>
+
+        <ul class="ul2">
+            <li>手机</li>
+            <li>2999</li>
+            <li>
+                <div class="aoo">-</div><input type="text" value="0">
+                <div class="add">+</div>
+            </li>
+            <li>0</li>
+            <li>1233</li>
+
+        </ul>
+
+        <ul class="ul2">
+            <li>台式电脑</li>
+            <li>3888</li>
+            <li>
+                <div class="aoo">-</div><input type="text" value="0">
+                <div class="add">+</div>
+            </li>
+            <li>0</li>
+            <li>155</li>
+
+        </ul>
+
+        <ul class="ul2">
+            <li>雪碧</li>
+            <li>5</li>
+            <li>
+                <div class="aoo">-</div><input type="text" value="0">
+                <div class="add">+</div>
+            </li>
+            <li>0</li>
+            <li>935</li>
+        </ul>
+
+        <ul class="ul2">
+            <li>牛奶</li>
+            <li>7</li>
+            <li>
+                <div class="aoo">-</div><input type="text" value="0">
+                <div class="add">+</div>
+            </li>
+            <li>0</li>
+            <li>1568</li>
+        </ul>
+        <div style="font-weight: bold;font-size: 30px;">总价:<span class="zong" style="padding: 0 30px;">0.00</span>元
+        </div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $(".ul2>li:nth-child(3)>.add").click(function () {
+            var text = $(this).siblings("input").val();
+            var danjia = $(this).parent().siblings("li:nth-child(2)").html();
+            text++;
+            var num = $(this).parent().siblings("li:nth-child(5)").html();
+            if (text > Math.floor(num)) return;
+            $(this).siblings("input").val(text);
+
+            var index = $(this).parents("ul").index();
+            auto(danjia, text, index);
+
+            $(".zong").html(zongjia());
+        })
+
+        $(".ul2>li:nth-child(3)>.aoo").click(function () {
+            var text = $(this).siblings("input").val();
+            var danjia = $(this).parent().siblings("li:nth-child(2)").html();
+            text--;
+            if (text < 0) {
+                text = 0;
+            }
+            $(this).siblings("input").val(text);
+            var index = $(this).parents("ul").index();
+            auto(danjia, text, index);
+
+            $(".zong").html(zongjia());
+        })
+
+
+
+        function auto(a, b, index) {
+            var numBer = Math.floor(a) * Math.floor(b);
+            numBer = Math.floor(numBer);
+            var aa = $("ul").eq(index).children().eq(3).html(numBer);
+        }
+
+        function zongjia() {
+            var arr = $(".ul2").children("li:nth-child(4)");
+            var z = 0;
+            $(arr).each((index, item) => {
+                var n = $(item).html();
+                z += Math.floor(n);
+            })
+            return z;
+        }
+
+
+        var arr = [{ "fonts": [{ "text": "谢谢惠顾", "top": "10%" }], "background": "#fa5d68" }, { "fonts": [{ "text": "100元话费", "top": "10%" }], "background": "#fff" }, { "fonts": [{ "text": "10G流量", "top": "10%" }], "background": "#ffed8b" }, { "fonts": [{ "text": "10元话费", "top": "10%" }], "background": "#fff" }, { "fonts": [{ "text": "5元话费", "top": "10%" }], "background": "#ffed8b" }, { "fonts": [{ "text": "2元话费", "top": "10%" }], "background": "#fff" }, { "fonts": [{ "text": "100M流量", "top": "10%" }], "background": "#ffed8b" }]
+        var text = "10G流量";
+        var arrIndex = null;
+        
+
+        for(let i = 0;i<arr.length;i++){
+            if(text == arr[i].fonts[0].text){
+                arrIndex = i;
+                break;
+            }
+        }
+
+        console.log(arrIndex);
+        
+    </script>
+</body>
+
+</html>

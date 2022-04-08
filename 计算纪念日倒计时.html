@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .wrap {
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .btn {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: black;
+            color: yellow;
+            font-size: 40px;
+            margin: 30px auto;
+            line-height: 150px;
+            cursor: pointer;
+        }
+
+        .ye {
+            font-size: 24px;
+        }
+
+        .footer {
+            font-size: 40px;
+            margin-top: 40px;
+        }
+        .user{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+            <h1>倒计时</h1>
+        </div>
+        <div class="center">
+            请输入：<input type="text" value="2021">年
+            <input type="text" value="10">月
+            <input type="text" value="22">日
+            <div style="margin-top: 10px;">
+                请输入：<input type="text" value="18">时
+                <input type="text" value="00">分
+                <input type="text" value="00">秒
+            </div>
+        </div>
+        <div class="btn">
+            开始
+        </div>
+        <div class="ye">距离- <span></span> -还剩：</div>
+        <div class="footer">
+
+        </div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var time = null;
+        $(".btn").click(function () {
+            clearInterval(time);
+            auto();
+            time = setInterval(auto, 1000)
+        })
+
+        function auto() {
+            $(".ye>span").html(' ');
+            $(".footer").html(' ');
+            var n = $(".center>input").eq(0).val();
+            var y = $(".center>input").eq(1).val();
+            var r = $(".center>input").eq(2).val();
+
+            var s = $(".center>div>input").eq(0).val();
+            var f = $(".center>div>input").eq(1).val();
+            var m = $(".center>div>input").eq(2).val();
+
+            var j = $(".user>input").eq(0).val();
+            var z = $(".user>input").eq(1).val();
+            var g = $(".user>input").eq(2).val();
+
+            var data = new Date("2022-01-25 15:00:00") / 1000;
+            data = Math.floor(data);
+            var str = `${n}-${y}-${r} ${s}:${f}:${m}`;
+            var strrq = `${n}年-${y}月-${r}日 ${s}:${f}:${m}`;
+            var date = new Date(str) / 1000;
+
+            var num = date - data;
+
+            var tt = Math.floor(num / (3600 * 24));
+            var ss = Math.floor((num / 3600) % 24);
+            console.log(ss);
+            var ff = Math.floor((num / 60) % 60);
+            var mm = Math.floor(num % 60);
+
+
+            $(".ye>span").append(strrq);
+            var aaa = `${zero(tt)}天${zero(ss)}小时${zero(ff)}分${(zero(mm))}秒`;
+            $(".footer").append(aaa);
+        };
+
+
+        function zero(numb) {
+            if (numb < 10) {
+                return "0" + numb
+            }
+            return numb;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main div {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            border: 5px solid pink;
+        }
+
+        #main div:nth-child(1) {
+            transform: translateZ(500px);
+        }
+
+        #main div:nth-child(2) {
+            transform: rotateY(40deg) translateZ(500px);
+        }
+
+        #main div:nth-child(3) {
+            transform: rotateY(80deg) translatez(500px);
+        }
+
+        #main div:nth-child(4) {
+            transform: rotateY(120deg) translatez(500px);
+        }
+
+        #main div:nth-child(5) {
+            transform: rotateY(160deg) translatez(500px);
+        }
+
+        #main div:nth-child(6) {
+            transform: rotateY(200deg) translatez(500px);
+        }
+
+        #main div:nth-child(7) {
+            transform: rotateY(240deg) translatez(500px);
+        }
+
+        #main div:nth-child(8) {
+            transform: rotateY(280deg) translatez(500px);
+        }
+
+        #main div:nth-child(9) {
+            transform: rotateY(320deg) translatez(500px);
+        }
+
+        /*# id选择器   id不能重复命名*/
+        #main {
+            margin: 100px auto;
+            /*让父元素居中*/
+            width: 300px;
+            height: 400px;
+            /*声明一个3D空间*/
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg);
+            animation-name: animate;
+            animation-duration: 10s;
+            /*动画执行次数*/
+            animation-iteration-count: infinite;
+            /*动画持续时间：无限 */
+            animation-timing-function: linear;
+            position: relative;
+        }
+
+        /*定义一个动画*/
+        @keyframes animate {
+            0% {
+                transform: rotateX(-10deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(-10deg) rotateY(360deg);
+            }
+        }
+
+
+        @keyframes animateheng {
+            0% {
+                transform: translate(0);
+            }
+
+            100% {
+                transform: translate(300);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+
+    <button style="width: 100px;margin: 0 auto;">变形</button>
+
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+
+        var btn = document.querySelector("button");
+
+    </script>
+</body>
+
+</html>

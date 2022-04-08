@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 360px;
+            margin: 100px auto;
+        }
+
+        li {
+            position: relative;
+            padding: 0 21px;
+            list-style: none;
+            border-left: 1px solid #4BACFD;
+        }
+
+        li:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            text-align: center;
+            background: #4BACFD;
+            border-radius: 50%;
+        }
+
+        .last_progress {
+            border: none;
+        }
+
+        .last_progress::before {
+            content: "●";
+            display: table-cell;
+            position: absolute;
+            vertical-align: middle;
+            left: -6px;
+            width: 14px;
+            height: 14px;
+            line-height: 11.5px;
+            text-align: center;
+            background: rgba(75, 172, 253, .3);
+            color: #4BACFD;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+
+        .progress_content {
+            position: relative;
+            top: -4px;
+        }
+
+        .progress_title {
+            font-size: 15px;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .progress_time {
+            color: #999999;
+            font-size: 12px;
+        }
+
+        .active {
+            color: #2BA0FF;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="progress_box">
+        <li>
+            <div class="progress_content">
+                <p class="progress_title">哈哈哈哈</p>
+                <p class="progress_time">报告</p>
+            </div>
+        </li>
+        <li>
+            <div class="progress_content">
+                <p class="progress_title">哈哈哈哈</p>
+                <p class="progress_time">报告</p>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

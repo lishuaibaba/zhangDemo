@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        ul {
+            width: 800px;
+            margin: 20px auto;
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        li {
+            display: flex;
+            height: 50px;
+            justify-content: space-between;
+            border-bottom: 3px solid red;
+            line-height: 50px;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        li>.right {
+            display: flex;
+        }
+
+        li>.right>.rem {
+            margin-left: 20px;
+        }
+
+        li>.right>div {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            background: red;
+        }
+
+        li>.right>div:nth-child(1) {
+            background: #0A8F05;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li>
+                <div class="left">列表1</div>
+                <div class="right">
+                    <div class="xiugai">修改</div>
+                    <div class="rem">删除</div>
+                </div>
+            </li>
+        </ul>
+        <button class="btn">添加</button>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $(".btn").click(function () {
+            var text = prompt("请输入内容");
+            if (text == null) {
+                return;
+            }
+            var li = `<li>
+                <div class="left">${text}</div>
+                <div class="right">
+                    <div class="xiugai">修改</div>
+                    <div class="rem">删除</div>
+                </div>
+            </li>`
+
+            $("ul").append(li);
+        })
+
+        $("ul").on("click",".xiugai", function () {
+            var a = $(this).parent().siblings(".left").html();
+            var text = prompt("请输入修改的内容", a);
+
+
+            $(this).parent().siblings(".left").html(text);
+        })
+
+        $("ul").on('click',".rem", function () {
+            $(this).parents("li").remove();
+        })
+    </script>
+</body>
+
+</html>

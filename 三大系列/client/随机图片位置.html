@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <style>
+        body {
+            position: relative;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div>我是图片</div>
+    <script src="../../jquery-2.1.1.min.js"></script>
+    <script>
+
+        setInterval(() => {
+            let w = Math.floor(Math.random() * ($(document.documentElement)[0].clientWidth - $("div")[0].clientWidth));
+            let h = Math.floor(Math.random() * ($(document.documentElement)[0].clientHeight - $("div")[0].clientHeight));
+            $("div").css({
+                left: w,
+                top: h
+            })
+        }, 1000)
+    </script>
+</body>
+
+</html>

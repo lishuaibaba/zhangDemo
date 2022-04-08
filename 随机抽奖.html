@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #main {
+            width: 606px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #main>div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            line-height: 200px;
+            text-align: center;
+            font-size: 30px;
+            color: #000;
+        }
+
+        #main>div:nth-child(5) {
+            line-height: 0;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            font-size: 30px;
+        }
+
+        .active {
+            background: red;
+            color: #fff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var arr = ["一等奖", "特等奖", "谢谢惠顾", "白给奖", "二等奖", "再来一次", "三等奖", "奔驰一辆"]
+
+        var str = ``;
+        $(arr).each((index, item) => {
+            if (index == 4) {
+                str += `<div><input type="button" value="抽奖"></div>`;
+            }
+            str += `<div>${item}</div>`
+        })
+
+        $("#main").append(str);
+
+        $("#main>div:nth-child(1)").addClass("active");
+
+        var n = 0;
+        var aa = true;
+        var tiem = null;
+        $("#main>div:nth-child(5)").click(function () {
+            if (aa) {
+                tiem = setInterval(function () {
+                    var n = Math.floor(Math.random() * Math.floor(9));
+                    if (n == 4) {
+                        n++;
+                    }
+                    $("#main>div").removeClass("active");
+                    $("#main>div").eq(n).addClass("active");
+                }, 50)
+                aa = false;
+            }else{
+                clearInterval(tiem);
+                aa = true;
+            }
+            setTimeout(function(){
+                clearInterval(tiem);
+                aa = true;
+            },3000)
+        })
+    </script>
+</body>
+
+</html>

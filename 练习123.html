@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .top {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .footer {
+            margin-top: 50px;
+        }
+
+        tbody {
+            text-align: center;
+        }
+
+        tbody button:nth-child(1) {
+            background: lightblue;
+        }
+
+        tbody button:nth-child(2) {
+            background: red;
+            color: #fff;
+        }
+
+        .show {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .show_top {
+            padding: 100px;
+            background: #fff;
+        }
+
+        .active {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="top">
+            <div class="text1">
+                姓名：<input type="text" name="username" value="hkjadhkjahsk"><br>
+                账号：<input type="text" name="user" value="hkjadhkjahsk"><br>
+                密码：<input type="text" name="pass" value="hkjadhkjahsk"><br>
+            </div>
+            <div class="text2">
+                权限：<input type="checkbox" value="0" id="0"><label for="0">管理</label>
+                <input type="checkbox" value="1" id="1"><label for="1">管理1</label>
+                <input type="checkbox" value="2" id="2"><label for="2">管理2</label>
+                <button class="btn">添加</button>
+            </div>
+        </div>
+        <div class="footer">
+            <table border="1" width="1000px">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>账号</th>
+                        <th>密码</th>
+                        <th>权限</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="show active">
+        <div class="show_top">
+            <div class="text_show">
+                姓名：<input type="text" name="username"><br>
+                账号：<input type="text" name="user"><br>
+                密码：<input type="text" name="pass"><br>
+            </div>
+            <div class="text_show showshpw">
+                权限：<input type="checkbox" value="0" id="02"><label for="02">管理</label>
+                <input type="checkbox" value="1" id="12"><label for="12">管理1</label>
+                <input type="checkbox" value="2" id="22"><label for="22">管理2</label>
+                <button class="btnShow">修改</button>
+                <button class="btnShow2">取消</button>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        let arr = [{
+            username: "username",
+            user: "username ",
+            pass: "username ",
+            arrQuan: []
+        }, {
+            username: "username",
+            user: "username ",
+            pass: "username ",
+            arrQuan: []
+        }];//存数据
+        let obj = {};
+        let arrQuan = [];
+        var num = null;;
+        $(".btn").click(function () {
+            let username = $(".text1>input").eq(0).val();
+            let user = $(".text1>input").eq(1).val();
+            let pass = $(".text1>input").eq(2).val();
+
+            // 处理权限
+            $(".text2>input").each((index, item) => {
+                if ($(item).prop("checked") == true) {
+                    if ($(item).val() == "0") {
+                        arrQuan.push("管理1")
+                    } else if ($(item).val() == "1") {
+                        arrQuan.push("管理2")
+                    } else if ($(item).val() == "2") {
+                        arrQuan.push("管理3")
+                    }
+                }
+            })
+
+            // 全部数据整合
+            obj = {
+                username,
+                user,
+                pass,
+                arrQuan
+            }
+            arr.push(obj);
+            obj = {};
+            arrQuan = [];
+            text();
+        })
+        text();
+        // 处理数据
+        function text() {
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                str += `<tr>
+                        <td><input type="checkbox"></td>
+                        <td>${i + 1}</td>
+                        <td>${arr[i].username}</td>
+                        <td>${arr[i].user}</td>
+                        <td>${arr[i].pass}</td>
+                        <td>${arr[i].arrQuan}</td>
+                        <td><button class="bianji">编辑</button><button class="remove">删除</button></td>
+                    </tr>`
+            }
+            $("tbody").html("");
+            $("tbody").append(str);
+        }
+
+        $("tbody").on("click", ".bianji", function () {
+            let index = $(this).parents("tr").index();
+            num = index;
+            $(".show").removeClass("active");
+            showText(index);
+        })
+
+        $("tbody").on("click", ".remove", function () {
+            arr.splice($(this).parents("tr").index(), 1);
+            text();
+        })
+
+        $(".btnShow").click(function () {
+
+            let username = $(".show_top").children().eq(0).children("input").eq(0).val();
+            let user = $(".show_top").children().eq(0).children("input").eq(1).val();
+            let pass = $(".show_top").children().eq(0).children("input").eq(2).val();
+
+            // 处理权限
+            $(".showshpw>input").each((index, item) => {
+                if ($(item).prop("checked") == true) {
+                    if ($(item).val() == "0") {
+                        arrQuan.push("管理1")
+                    } else if ($(item).val() == "1") {
+                        arrQuan.push("管理2")
+                    } else if ($(item).val() == "2") {
+                        arrQuan.push("管理3")
+                    }
+                }
+            })
+
+            // 全部数据整合
+            obj = {
+                username,
+                user,
+                pass,
+                arrQuan
+            }
+            arr[num] = obj;
+            obj = {};
+            arrQuan = [];
+            text();
+
+            $(".show").addClass("active");
+        })
+
+        $(".btnShow2").click(function () {
+            $(".show .text_show").eq(1).children("input").prop("checked", false);
+            $(".show").addClass("active");
+        })
+
+        function showText(index) {
+            $(".show .text_show").eq(0).children("input").eq(0).val(arr[index].username)
+            $(".show .text_show").eq(0).children("input").eq(1).val(arr[index].user)
+            $(".show .text_show").eq(0).children("input").eq(2).val(arr[index].pass)
+
+            if (arr[index].arrQuan.length >= 1) {
+                $(arr[index].arrQuan).each((index, item) => {
+                    if (item == "管理1") {
+                        $(".show .text_show").eq(1).children("input").eq(0).prop("checked", true);
+                    }
+                    if (item == "管理2") {
+                        $(".show .text_show").eq(1).children("input").eq(1).prop("checked", true);
+                    }
+                    if (item == "管理3") {
+                        $(".show .text_show").eq(1).children("input").eq(2).prop("checked", true);
+                    }
+                })
+            }
+        }
+
+        $("thead input").change(function () {
+            if ($(this).prop("checked")) {
+                $("tbody input").prop("checked", true);
+            } else {
+                $("tbody input").prop("checked", false);
+            }
+        })
+
+        $("tbody").on("click", "input", function () {
+            inz();
+        })
+
+        function inz() {
+            let arrinz = [];
+            $("tbody input").each((index, item) => {
+                arrinz.push($(item).prop("checked"));
+
+                if (arrinz.every(item => item == true)) {
+                    $("thead input").prop("checked", true);
+                } else {
+                    $("thead input").prop("checked", false);
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>`

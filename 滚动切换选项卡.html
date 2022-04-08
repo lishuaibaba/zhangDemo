@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            width: 600px;
+            margin: 50px auto;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            height: 40px;
+            padding: 0px 20px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        span {
+            display: block;
+            width: 100%;
+            height: 90%;
+        }
+
+        .active {
+            border-bottom: 4px solid pink;
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li>
+                <span class="active">菜单</span>
+            </li>
+            <li>
+                <span>不知道什么</span>
+            </li>
+            <li>
+                <span>啊啊啊</span>
+            </li>
+            <li>
+                <span>水水水</span>
+            </li>
+            <li>
+                <span>啧啧啧</span>
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var num = 0;
+        var time = null;
+
+        var scrollFunc = function (e) {
+            e = e || window.event;
+            if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+                time = setTimeout(function () {
+                    if (e.wheelDelta > 0) { //当滑轮向上滚动时
+                        num--;
+                        if (num < 1) {
+                            num = 0;
+                        }
+                        $("ul>li>span").removeClass("active");
+                        $("ul>li>span").eq(num).addClass("active");
+                        clearTimeout(time);
+                    }
+                    if (e.wheelDelta < 0) { //当滑轮向下滚动时
+                        num++;
+                        if (num > $("ul>li>span").length) {
+                            num = $("ul>li>span").length - 1;
+                        }
+                        $("ul>li>span").removeClass("active");
+                        $("ul>li>span").eq(num).addClass("active");
+                        clearTimeout(time);
+                    }
+                }, 0)
+            }
+        };
+        //  滚动滑轮触发scrollFunc方法
+        window.onmousewheel = document.onmousewheel = scrollFunc;
+    </script>
+</body>
+
+</html>

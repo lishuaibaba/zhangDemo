@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <input type="text">
+        <span></span>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("input").keydown(function (e) {
+            if (e.keyCode == 13) {
+                var reg = /敏感词|文明|和谐/g;
+                var val = $(this).val();
+                if (reg.test(val)) {
+                    let val1 = val.replace(reg, "**")
+                    $("span").text(val1);
+                } else {
+                    $("span").text(val);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

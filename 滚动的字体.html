@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动的字体</title>
+    <style>
+        span{
+            display: inline-block;
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 100px;
+        }
+        span:nth-child(1){
+            background: pink;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        span:nth-child(2){
+            background: yellow;
+            position: absolute;
+            left: 0px;
+            top: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="div1">这是要多少卡号是快乐的回家埃里克森家里的九零七五九二六九六空间拉开圣诞节绿卡就是看了大家拉克斯基的离开尽量快点撒娇卢卡斯尽量躲开你前面，我呢，目前为你，每学年支持，吗闹钟，新农村，名字那些，明年初，某种信念按时打卡记录案件深刻的理解了这是要多少卡号是快乐的回家埃里克森家里的九零七五九二六九六空间拉开圣诞节绿卡就是看了大家拉克斯基的离开尽量快点撒娇卢卡斯尽量躲开你前面，我呢，目前为你，每学年支持，吗闹钟，新农村，名字那些，明年初，某种信念按时打卡记录案件深刻的理解了这是要多少卡号是快乐的回家埃里克森家里的九零七五九二六九六空间拉开圣诞节绿卡就是看了大家拉克斯基的离开尽量快点撒娇卢卡斯尽量躲开你前面，我呢，目前为你，每学年支持，吗闹钟，新农村，名字那些，明年初，某种信念按时打卡记录案件深刻的理解了</span>
+    <span class="div2"></span>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        setInterval(() => {
+            var str = $(".div1").html();
+            var num1 = 0;
+            var a = str.substring(num1++,1);
+            str = str.slice(num1)
+            var s = $(".div2").html()
+            var nc = s += a;
+            $(".div2").html(nc);
+            $(".div1").html(str);
+        },100)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=12d9d09d6cf4b34a2c748743eb4fca8c"></script>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=12d9d09d6cf4b34a2c748743eb4fca8c"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('container', {
+            zoom: 12,
+            center: [116.39, 39.9]
+        });
+        AMap.plugin('AMap.ToolBar', function () {//异步加载插件
+            var toolbar = new AMap.ToolBar();
+            map.addControl(toolbar);
+        });
+    </script>
+    <script>
+        window.onLoad = function () {
+            var map = new AMap.Map('container');
+            AMap.plugin('AMap.Driving', function () {
+                var driving = new AMap.Driving({
+                    // 驾车路线规划策略，AMap.DrivingPolicy.LEAST_TIME是最快捷模式
+                    policy: AMap.DrivingPolicy.LEAST_TIME
+                })
+
+                var startLngLat = [116.379028, 39.865042]
+                var endLngLat = [116.427281, 39.903719]
+
+                driving.search(startLngLat, endLngLat, function (status, result) {
+                    // 未出错时，result即是对应的路线规划方案
+                })
+            })
+        }
+        var url = 'https://webapi.amap.com/maps?v=1.4.15&key=12d9d09d6cf4b34a2c748743eb4fca8c&callback=onLoad';
+        var jsapi = document.createElement('script');
+        jsapi.charset = 'utf-8';
+        jsapi.src = url;
+        document.head.appendChild(jsapi);
+    </script>
+</body>
+
+</html>

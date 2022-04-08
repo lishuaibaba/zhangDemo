@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .main {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .ul1 {
+            display: flex;
+        }
+
+        .ul1>li {
+            padding: 0px 30px;
+            cursor: pointer;
+            background: red;
+        }
+
+
+        .ul1>li:nth-child(2) {
+            position: relative;
+        }
+
+        .fct_list {
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            left: 0px;
+            top: 20px;
+            background: pink;
+            display: none;
+        }
+
+        .ul1>li:nth-child(2):hover .fct_list {
+            display: block;
+        }
+
+        .aaa {
+            margin-left: 100px;
+        }
+
+        .aaa>span {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 50%;
+            background: #9999;
+        }
+
+        .aaa>.active {
+            background: lightskyblue;
+            width: 50px !important;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul class="ul1">
+            <li>
+                首页
+            </li>
+            <li>
+                产品中心
+                <div class="fct_list">
+                    <ul>
+                        <li><a href="http://www.baidu.com">产品1</a></li>
+                        <li><a href="http://www.baidu.com">产品2</a></li>
+                        <li><a href="http://www.baidu.com">产品3</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                联系我们
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="aaa">
+        <span class="active animate__animated "></span>
+        <span class="animate__animated "></span>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $(".aaa>span").click(function () {
+            $("span").removeClass("active animate__fadeIn");
+            $(this).addClass("active animate__fadeIn");
+        })
+    </script>
+</body>
+
+</html>

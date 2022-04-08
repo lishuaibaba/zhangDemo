@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function toTH(num) {
+            var arr = num.split('-');
+            var c = arr.splice(0, 1)
+            var str = ``;
+            for (var i = 0; i < arr.length; i++) {
+                var a = arr[i].charAt(0).toUpperCase();
+                var b = arr[i].substring(1);
+                str += a + b;
+            }
+            return c[0] + str;
+        }
+        var d = toTH("zzzz-jjjj-bbbb-aaaa");
+        console.log(d);
+    </script>
+</body>
+
+</html>

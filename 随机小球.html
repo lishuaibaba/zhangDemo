@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机小球</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        #main{
+            position: relative;
+        }
+        #main>span {
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:100vw;height: 100vh;overflow: hidden;" id="main">
+        <button>随机小球</button>
+    </div>
+
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("button").click(function () {
+            $(this).siblings("span").remove();
+            var num = Math.floor(Math.random() * 50);
+            var str = ``;
+            for (var i = 0; i < num; i++) {
+                var numWidth = Math.floor(Math.random() * 200);
+                var numColor = Math.floor(Math.random() * 1000000);
+                var left = Math.floor(Math.random() * 100);
+                var top = Math.floor(Math.random() * 100);
+                str += `<span style="width:${numWidth}px;height:${numWidth}px;background:#${numColor};left:${left}%;top:${top}%"></span>`;
+            }
+            $("#main").append(str);
+        })
+    </script>
+</body>
+
+</html>

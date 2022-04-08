@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let p1 = Promise.resolve("aaa")
+        let p2 = Promise.resolve("bbb")
+        let p3 = Promise.resolve("ccc")
+        let p4 = Promise.reject("ddd")
+        let p5 = new Promise((resolve, reject) => {
+            console.log("走这里了");
+            resolve("eee")
+        })
+
+
+        // Promise 的 all 和 allSettled的区别  all 遇到错误会全部执行，但是成功的值看不到摸不着 只显示错误的catch值
+        //                                    allSettled 会把所以的值都存在一个数组上 不管错还是对
+
+        // let pp = Promise.all([p1, p2, p3, p4, p5]).then(res => {
+        //     console.log(res);
+        // }).catch(req => {
+        //     console.log(req);
+        // })
+
+        let pp = Promise.allSettled([p1, p2, p3, p4, p5]).then(res => {
+
+        })
+    </script>
+</body>
+
+</html>

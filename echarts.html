@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main1" style="width: 670px;height: 600px;"></div>
+    <script src="./echarts.min.js"></script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main1'));
+        // var point = 30;
+        // const handred = 100
+        // var option = {
+        //     title: {
+        //         text: point + '%',
+        //         x: 'center',
+        //         y: 'center',
+        //         textStyle: {
+        //             fontWeight: 'normal',
+        //             color: '#29EEF3',
+        //             fontSize: '35'
+        //         }
+        //     },
+
+        //     // tooltip: {
+        //     //     formatter: function(params) {
+        //     //         return params.name + '：' + params.percent + ' %'
+        //     //     }
+        //     // },
+        //     grid: {
+        //         x: "1%",
+        //         y: "1%",
+        //         x2: "1%",
+        //         y2: "1%",
+        //     },
+        //     color: ["#E8E9EC"],
+        //     series: [{
+        //         name: 'circle',
+        //         type: 'pie',
+        //         // hoverAnimation:false,
+        //         // avoidLabelOverlap: false,
+        //         clickable: false,
+        //         clockWise: true,
+        //         radius: ['50%', '66%'],
+        //         itemStyle: {
+        //             normal: {
+        //                 label: {
+        //                     show: false
+        //                 },
+        //                 labelLine: {
+        //                     show: false
+        //                 }
+        //             }
+        //         },
+        //         hoverAnimation: false,
+        //         data: [{
+        //             value: point,
+        //             name: '占比',
+        //             itemStyle: {
+        //                 normal: {
+        //                     color: { // 颜色渐变
+        //                         colorStops: [{
+        //                             offset: 0,
+        //                             color: '#7ACDF6' // 0% 处的颜色
+        //                         }, {
+        //                             offset: 1,
+        //                             color: '#029FE4' // 100% 处的颜色1
+        //                         }]
+        //                     },
+        //                     label: {
+        //                         show: false
+        //                     },
+        //                     labelLine: {
+        //                         show: false
+        //                     }
+        //                 }
+        //             }
+        //         }, {
+        //             name: '剩余',
+        //             value: handred - point,
+        //             itemStyle: {
+        //                 normal: {
+        //                     color: '#E8E9EC'
+        //                 },
+        //                 emphasis: { color: '#E8E9EC' }
+        //             }
+        //         }],
+        //     }]
+        // }
+
+        var option = {
+            color: ['#F6BD14', '#65779B'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow',
+                },
+            },
+            legend: {
+                data: ['新增视频数量', '名阶段各板块视频数量']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true,
+                axisTick: {
+                    show: false
+                },
+                axisLabel:{
+                    interval:0
+                },
+                barWidth:2,
+                data: ['新婚启航', '准爸准妈', '0-3岁婴儿期', '3-6岁婴儿期', '小学期', '初中期', '高中期', '家风'],
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    max: 120,
+                    min: 0,
+                    interval: 20,
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                }
+            ],
+            series: [
+                {
+                    name: '新增视频数量',
+                    type: 'bar',
+                    stack: '广告',
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    barWidth: 30,
+                    data: [20, 20, 33, 30, 30, 20, 10]
+                },
+                {
+                    name: '名阶段各板块视频数量',
+                    type: 'bar',
+                    stack: '广告',
+                    barWidth: 30,
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: [10, 9, 30, 20, 30, 20, 00, 20]
+                }
+            ],
+        };
+        myChart.setOption(option);
+
+    </script>
+</body>
+
+</html>

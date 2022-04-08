@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .main {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+
+        .ul1 {
+            display: flex;
+        }
+
+        .ul1>li {
+            width: 100px;
+            height: 60px;
+            background: pink;
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .ul1>.topActive {
+            background: rgb(241, 21, 21);
+        }
+
+        .diva {
+            display: flex;
+        }
+
+        .diva>.left {
+            width: 80%;
+            height: 440px;
+            background: rgb(255, 217, 0);
+            color: #fff;
+            font-size: 100px;
+            text-align: center;
+            line-height: 440px;
+        }
+
+        .diva>.right {
+            width: 20%;
+        }
+
+        .diva>.right>.ula>li {
+            width: 100%;
+            height: 88px;
+            text-align: center;
+            line-height: 88px;
+            font-size: 30px;
+            background: lightblue;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .leftula>li {
+            display: none;
+        }
+
+        .diva>.right>.ula>.rightActive {
+            background: rgb(119, 0, 255);
+        }
+
+        .shen>div {
+            display: none;
+        }
+
+        .show {
+            display: flex !important;
+        }
+
+        .leftshow {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <ul class="ul1">
+            <li class="topActive">A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+        </ul>
+        <div class="shen">
+
+        </div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var str = ``;
+        var num = null;
+        var arr = [
+            {
+                left: "A",
+                right: "a"
+            },
+            {
+                left: "B",
+                right: "b"
+            },
+            {
+                left: "C",
+                right: "c"
+            },
+            {
+                left: "D",
+                right: "d"
+            },
+            {
+                left: "E",
+                right: "e"
+            },
+        ]
+        for (var i = 0; i < arr.length; i++) {
+            if (i == 0) {
+                str += `<div class="diva show">
+                <div class="left">
+                    <ul class="leftula">
+                        <li class="leftshow">${arr[i].right}1</li>
+                        <li>${arr[i].right}2</li>
+                        <li>${arr[i].right}3</li>
+                        <li>${arr[i].right}4</li>
+                        <li>${arr[i].right}5</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul class="ula">
+                        <li class="rightActive">${arr[i].right}1</li>
+                        <li>${arr[i].right}2</li>
+                        <li>${arr[i].right}3</li>
+                        <li>${arr[i].right}4</li>
+                        <li>${arr[i].right}5</li>
+                    </ul>
+                </div>
+            </div>`;
+            } else {
+                str += `<div class="diva">
+                <div class="left">
+                    <ul class="leftula">
+                        <li class="leftshow">${arr[i].right}1</li>
+                        <li>${arr[i].right}2</li>
+                        <li>${arr[i].right}3</li>
+                        <li>${arr[i].right}4</li>
+                        <li>${arr[i].right}5</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul class="ula">
+                        <li class="rightActive">${arr[i].right}1</li>
+                        <li>${arr[i].right}2</li>
+                        <li>${arr[i].right}3</li>
+                        <li>${arr[i].right}4</li>
+                        <li>${arr[i].right}5</li>
+                    </ul>
+                </div>
+            </div>`;
+            }
+        }
+
+        $(".shen").append(str);
+
+
+        autoTop();
+
+        $(".ul1>li").mouseover(function () {
+            let _this = this;
+            autoTop(_this);
+        })
+
+        function autoTop(_that) {
+
+            if (_that == undefined) {
+                num = 0;
+            } else {
+                num = $(_that).index();
+            }
+            $(".ul1>li").removeClass("topActive");
+            if (_that == undefined) {
+                $(".ul1>li").eq(0).addClass("topActive");
+            } else {
+                $(_that).addClass("topActive");
+            }
+
+            $(".shen>div").removeClass("show");
+            if (_that == undefined) {
+                $(".shen>div").eq(0).addClass("show");
+            } else {
+                $(".shen>div").eq($(_that).index()).addClass("show");
+            }
+
+
+            $(".diva").eq(num).children(".right").children().children().off("mouseover");
+            $(".diva").eq(num).children(".right").children().children().on("mouseover", function () {
+                let _this = this;
+                autoRight(_this);
+            })
+        }
+
+
+        function autoRight(_that) {
+            $(_that).addClass("rightActive").siblings().removeClass("rightActive");
+            $(".diva").eq(num).children(".left").children().children().eq($(_that).index()).addClass("leftshow").siblings().removeClass("leftshow");
+        }
+    </script>
+</body>
+
+</html>

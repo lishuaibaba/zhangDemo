@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小U商城</title>
+    <!-- 第三方插件 -->
+    <!-- <link rel="stylesheet" href=""> -->
+    <!-- 重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 本页面样式表 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 引入图标 -->
+    <link rel="shortcut icon" href="./aaa.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <div class="nav">
+        <div class="nav_content clearfix">
+            <div class="nav_left">
+                <ul class="clearfix">
+                    <li>网站导航</li>
+                    <li>
+                        商家入驻
+                    </li>
+                    <li>
+                        客户服务
+                    </li>
+                    <li>
+                        北京
+                        <i class="ti1"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav_right">
+                <ul class="clearfix">
+                    <li><a href="/login">请登录</a></li>
+                    <li><a href="/register" class="a2">注册有礼</a></li>
+                    <li>我的订单</li>
+                    <li>我的易购</li>
+                    <li>小U会员</li>
+                    <li>
+                        <a style="color: #FE774A;" href="/ShoppingCart">
+                            <i class="ti1"></i>
+                            购物车&nbsp;0
+                    </li>
+                    </a>
+                    <li>
+                        易付宝
+                    </li>
+                    <li>
+                        企业采购
+                    </li>
+                    <li>
+                        手机小U
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="header">
+        <div class="header_search clearfix">
+            <div class="header_search_left">
+                <img src="./images/logo.jpg" alt="logo">
+            </div>
+            <div class="header_search_right">
+                <div class="top">
+                    <div class="search">
+                        <input type="text" placeholder="跨店没300减30">
+                        <div class="sous">搜索</div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <ul class="clearfix">
+                        <li>
+                            手机
+                            <i>|</i>
+                        </li>
+                        <li>
+                            电动牙刷
+                            <i>|</i>
+                        </li>
+                        <li>
+                            电视
+                            <i>|</i>
+                        </li>
+                        <li>
+                            海尔空调
+                            <i>|</i>
+                        </li>
+                        <li>
+                            洗衣机
+                            <i>|</i>
+                        </li>
+                        <li>
+                            茅台
+                            <i>|</i>
+                        </li>
+                        <li>
+                            热水器
+                            <i>|</i>
+                        </li>
+                        <li>
+                            ipad
+                            <i>|</i>
+                        </li>
+                        <li>
+                            微波炉
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 菜单栏 -->
+    <div class="menu">
+        <div class="menu_centent clearfix">
+            <div class="left">
+                <div class="dd">
+                    全部商品分类
+                </div>
+                <div class="menuer">
+                    <ul>
+                        <li>
+                            <span>手机<i>|</i></span>
+                            <span>运营商<i>|</i></span>
+                            <span>智能数码</span>
+                        </li>
+                        <li>
+                            <span>空调<i>|</i></span>
+                            <span>电视<i>|</i></span>
+                            <span>冰箱<i>|</i></span>
+                            <span>冰箱</span>
+                        </li>
+                        <li>
+                            <span>厨卫大电<i>|</i></span>
+                            <span>生活家电<i>|</i></span>
+                            <span>厨具</span>
+                        </li>
+                        <li>
+                            <span>电脑办公<i>|</i></span>
+                            <span>相机<i>|</i></span>
+                            <span>DIY</span>
+                        </li>
+                        <li>
+                            <span>食品<i>|</i></span>
+                            <span>酒水<i>|</i></span>
+                            <span>生鲜<i>|</i></span>
+                            <span>特产</span>
+                        </li>
+                        <li>
+                            <span>美妆<i>|</i></span>
+                            <span>个护<i>|</i></span>
+                            <span>清洁<i>|</i></span>
+                            <span>宠物</span>
+                        </li>
+                        <li>
+                            <span>母婴<i>|</i></span>
+                            <span>玩具<i>|</i></span>
+                            <span>车床<i>|</i></span>
+                            <span>童装</span>
+                        </li>
+                        <li>
+                            <span>运动<i>|</i></span>
+                            <span>户外<i>|</i></span>
+                            <span>足球<i>|</i></span>
+                            <span>跑步机</span>
+                        </li>
+                        <li>
+                            <span>男装<i>|</i></span>
+                            <span>女装<i>|</i></span>
+                            <span>内衣<i>|</i></span>
+                            <span>鞋靴</span>
+                        </li>
+                        <li>
+                            <span>箱包<i>|</i></span>
+                            <span>钟表<i>|</i></span>
+                            <span>珠宝<i>|</i></span>
+                            <span>艺术</span>
+                        </li>
+                        <li>
+                            <span>汽车<i>|</i></span>
+                            <span>汽摩<i>|</i></span>
+                            <span>二手车<i>|</i></span>
+                            <span>车品</span>
+                        </li>
+                        <li>
+                            <span>图书<i>|</i></span>
+                            <span>艺术<i>|</i></span>
+                            <span>原版<i>|</i></span>
+                            <span>文学</span>
+                        </li>
+                        <li>
+                            <span>医药健康<i>|</i></span>
+                            <span>计生情趣</span>
+                        </li>
+                        <li>
+                            <span>理财<i>|</i></span>
+                            <span>分期<i>|</i></span>
+                            <span>保险</span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="clearfix">
+                    <li>限时抢购</li>
+                    <li>红孩子</li>
+                    <li>小U超市</li>
+                    <li>电器城</li>
+                    <li>生活家电</li>
+                    <li>时尚服饰</li>
+                    <li>金融</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- banner 大图片 -->
+    <div class="banner">
+        <!-- swiper-slide -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/images/banner.jpg" alt="zxc">
+                </div>
+                <% for(var i=0;i<list.length;i++) {%>
+                    <div class="swiper-slide">
+                        <img src="<%= list[i].img%>" alt="zxc">
+                    </div>
+                    <%}%>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <!-- 限时抢购 -->
+
+    <div class="flash_sale clearfix">
+        <div class="flash_sale_left">
+            <div class="flash_sale_left_top clearfix">
+                <div class="top_left clearfix">
+                    <div class="left">
+                        <img src="./images/xsqg.jpg" alt="qg">
+                    </div>
+                    <div class="right">
+                        <span>距离下场</span>
+                        <span>03</span>
+                        <span>41</span>
+                        <span>16</span>
+                    </div>
+                </div>
+                <div class="top_right">
+                    <span>16:00场-正在疯抢</span>
+                    <span>20:00场-即将开抢</span>
+                </div>
+            </div>
+            <div class="flash_sale_left_center">
+
+            </div>
+            <div class="flash_sale_left_bottom">
+                <ul class="clearfix">
+                    <li>
+                        <div class="top">
+                            <img src="./images/qianggou_aicao.png" alt="ai">
+                        </div>
+                        <div class="center">壹宝泡脚足浴包艾草艾叶藏</div>
+                        <div class="bottom">
+                            <span>￥7.5</span>
+                            <del>￥17.8</del>
+                        </div>
+                        <div class="xsfool">
+                            <span>
+                                <i></i>
+                            </span>
+                            <span>已抢36%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/qianggoulatiao.png" alt="ai">
+                        </div>
+                        <div class="center">金磨坊 劲道牛肉丸 90g</div>
+                        <div class="bottom">
+                            <span>￥3.9</span>
+                            <del>￥14.5</del>
+                        </div>
+                        <div class="xsfool">
+                            <span>
+                                <i></i>
+                            </span>
+                            <span>已抢35%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/qianggoushen.png" alt="ai" class="img1">
+                        </div>
+                        <div class="center">山羊奶身体乳保湿润滑香体</div>
+                        <div class="bottom">
+                            <span>￥9.9</span>
+                            <del>￥29.9</del>
+                        </div>
+                        <div class="xsfool">
+                            <span>
+                                <i></i>
+                            </span>
+                            <span>已抢35%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/qianggou_maojing.png" alt="ai" class="img2">
+                        </div>
+                        <div class="center">有勤毛巾架免打孔卫生间太</div>
+                        <div class="bottom">
+                            <span>￥14.8</span>
+                            <del>￥39.6</del>
+                        </div>
+                        <div class="xsfool">
+                            <span>
+                                <i></i>
+                            </span>
+                            <span>已抢45%</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="flash_sale_right">
+            <div class="top clearfix">
+                <div class="left">大聚会</div>
+                <div class="right">更多</div>
+            </div>
+            <div class="top_center"></div>
+            <div class="top_bottom">
+                <div class="top">
+                    <img src="./images/banner01.jpg" alt="ss">
+                    <div class="dd">
+                        <div class="ddb">
+                            <img src="./images/banner02.jpg" alt="1">
+                            <div class="baok">
+                                <div class="bk">
+                                    爆款直降
+                                </div>
+                                <span>仅剩<i>9小时</i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom clearfix">
+                    <div class="xt1 xt2">
+                        <img src="./images/banner03.jpg" alt="1">
+                        <span>爆款低至五折</span>
+                    </div>
+                    <div class="xt1">
+                        <img src="./images/banner02.jpg" alt="1">
+                        <span>爆款直降</span>
+                    </div>
+                    <div class="xt1">
+                        <img src="./images/banner04.jpg" alt="1">
+                        <span>爆款直降</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 排行榜 人气好货 -->
+    <div class="ranking clearfix">
+        <!-- 排行榜 -->
+        <div class="ranking_ph">
+            <div class="ranking_ph_top clearfix">
+                <div class="shu"></div>
+                <div class="left">排行榜</div>
+                <div class="right">更多</div>
+            </div>
+
+            <div class="ranking_ph_center">
+                <ul class="clearfix">
+                    <li>精选</li>
+                    <li>休闲食品</li>
+                    <li>纸品清洁</li>
+                    <li>干货调味</li>
+                </ul>
+            </div>
+
+            <div class="ranking_ph_center_xian"></div>
+
+            <div class="ranking_ph_bottom">
+                <ul>
+                    <li class="clearfix">
+                        <div class="left">
+                            <img src="./images/list01.jpg" alt="12">
+                        </div>
+                        <div class="right">
+                            <div class="top">
+                                好时 KISS好时之吻曲奇奶香白巧克<br>力82g
+                            </div>
+                            <div class="bottom">
+                                <span>
+                                    ￥15.50
+                                </span>
+                                <i>休闲食品销量NO1</i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left">
+                            <img src="./images/list02.jpg" alt="12">
+                        </div>
+                        <div class="right">
+                            <div class="top">
+                                蓝月亮 衣领净500g瓶 喷雾头衣领净<br>衣领清洁剂
+                            </div>
+                            <div class="bottom">
+                                <span>
+                                    ￥32.90
+                                </span>
+                                <i>纸品清洁销量NO1</i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left">
+                            <img src="./images/list03.jpg" alt="12">
+                        </div>
+                        <div class="right">
+                            <div class="top">
+                                加加鲜味鲜生抽500ml酿造生抽酱油<br>点蘸凉拌炒菜调味料调味品
+                            </div>
+                            <div class="bottom">
+                                <span>
+                                    ￥5.90
+                                </span>
+                                <i>干货调味销量NO1</i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 人气好货 -->
+        <div class="populargoods">
+            <div class="populargoods_rq_top clearfix">
+                <div class="shu"></div>
+                <div class="left">人气好货</div>
+                <div class="right">更多</div>
+            </div>
+            <div class="populargoods_rq_bottom">
+                <ul class="clearfix">
+                    <li>
+                        <div class="top">
+                            <img src="./images/item1.jpg" alt="12">
+                        </div>
+                        <div class="center">美的 料理机</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item2.jpg" alt="12">
+                        </div>
+                        <div class="center">美的智能微波炉</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item3.jpg" alt="12">
+                        </div>
+                        <div class="center">白猫柔顺高效洗衣液</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item4.jpg" alt="12">
+                        </div>
+                        <div class="center">伊莱克斯 咖啡机</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item5.jpg" alt="12">
+                        </div>
+                        <div class="center">智能加湿 空气净化器</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item6.jpg" alt="12">
+                        </div>
+                        <div class="center">小熊全自动煎药壶</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item7.jpg" alt="12">
+                        </div>
+                        <div class="center">象印不锈钢电水壶</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <img src="./images/item8.jpg" alt="12">
+                        </div>
+                        <div class="center">康巴赫防溢不沾炖锅</div>
+                        <div class="bottom">318人都说好</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 三张图片 -->
+    <div class="imgsanz clearfix">
+        <div class="top">
+            <img src="./images/img1.jpg" alt="1">
+        </div>
+        <div class="center">
+            <img src="./images/img2.jpg" alt="1">
+        </div>
+        <div class="bottom">
+            <img src="./images/img3.jpg" alt="1">
+        </div>
+    </div>
+
+    <!-- 发现好货 -->
+
+    <div class="find clearfix">
+        <div class="find_left">
+            <div class="find_left_img">
+                <img src="./images/find01.png" alt="21">
+            </div>
+            <div class="find_left_img2">
+                <img src="./images/find02.png" alt="21">
+                <div class="tsuo">
+                    探索新生活
+                    <div class="jt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="find_right">
+            <ul class="clearfix">
+                <li>
+                    <div class="top">
+                        小米 大风量 吹风机
+                    </div>
+                    <div class="bottom">
+                        <img src="./images/k1.webp" alt="21">
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <img src="./images/k2.webp" alt="21">
+                    </div>
+                    <div class="top">
+                        雷蛇 机械键盘
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        美心 椰心 鸡蛋卷
+                    </div>
+                    <div class="bottom">
+                        <img src="./images/k3.webp" alt="21">
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <img src="./images/k4.webp" alt="21">
+                    </div>
+                    <div class="top">
+                        不锈钢 梳妆台
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        26支专业套装套刷
+                    </div>
+                    <div class="bottom">
+                        <img src="./images/k5.webp" alt="21">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 智能数码left  汽车right-->
+
+    <div class="digital clearfix">
+        <div class="digital_left">
+            <div class="top clearfix">
+                <div class="left clearfix">
+                    <div class="h"></div>
+                    <div class="wz">智能数码</div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>智能频道</li>
+                        <li>智能音响</li>
+                        <li>智能手表</li>
+                        <li>平衡车</li>
+                        <li>智能门锁</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <img src="./images/b_img1.jpg" alt="123">
+                    <div class="wz">
+                        <span>智能数码</span>
+                        <i>爆款门锁直降</i>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>
+                            <div class="top1">小天才手表</div>
+                            <div class="center">儿童手表低至348起</div>
+                            <div class="bottom">
+                                <img src="./images/good01.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">智能数码闹元宵</div>
+                            <div class="center">爆款至高12期免息</div>
+                            <div class="bottom">
+                                <img src="./images/good02.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">家居品类日</div>
+                            <div class="center">领劵下单省100</div>
+                            <div class="bottom">
+                                <img src="./images/good03.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">智能潮品</div>
+                            <div class="center">爆款低至79元</div>
+                            <div class="bottom">
+                                <img src="./images/good04.jpg" alt="155">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="digital_right digital_left">
+            <div class="top clearfix">
+                <div class="left clearfix">
+                    <div class="h"></div>
+                    <div class="wz">汽车</div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>苏宁汽车</li>
+                        <li>汽车广场</li>
+                        <li>易好车</li>
+                        <li>车管家</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <img src="./images/b_img2.jpg" alt="123">
+                    <div class="wz">
+                        <span>车载空净半价购</span>
+                        <i>健康保价</i>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>
+                            <div class="top1">新车会场</div>
+                            <div class="center">购车送油卡</div>
+                            <div class="bottom">
+                                <img src="./images/good05.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">品质二手车</div>
+                            <div class="center">首付低至一成</div>
+                            <div class="bottom">
+                                <img src="./images/good06.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">分期购车</div>
+                            <div class="center">一成首付 妙提新车</div>
+                            <div class="bottom">
+                                <img src="./images/good07.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">电摩新年焕新</div>
+                            <div class="center">爆品预售定金翻倍抵</div>
+                            <div class="bottom">
+                                <img src="./images/good08.jpg" alt="155">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 生活家电left  家装建材right-->
+
+    <div class="digital clearfix life">
+        <div class="digital_left">
+            <div class="top clearfix">
+                <div class="left clearfix">
+                    <div class="h"></div>
+                    <div class="wz">生活家电</div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>生活电器</li>
+                        <li>炊具</li>
+                        <li>厨房电器</li>
+                        <li>个人健康</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <img src="./images/b_img3.jpg" alt="123">
+                    <div class="wz">
+                        <span>生活家电</span>
+                        <i>9.9抢好货</i>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>
+                            <div class="top1">生活家电</div>
+                            <div class="center">戴森直降700</div>
+                            <div class="bottom">
+                                <img src="./images/good09.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">烹饪炊具</div>
+                            <div class="center">满299减40</div>
+                            <div class="bottom">
+                                <img src="./images/good10.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">厨房电器</div>
+                            <div class="center">爆款99元起</div>
+                            <div class="bottom">
+                                <img src="./images/good11.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">个护健康</div>
+                            <div class="center">爆款买赠好礼</div>
+                            <div class="bottom">
+                                <img src="./images/good12.jpg" alt="155">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="digital_right digital_left">
+            <div class="top clearfix">
+                <div class="left clearfix">
+                    <div class="h"></div>
+                    <div class="wz">家装建材</div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>家装狂欢节</li>
+                        <li>家具馆</li>
+                        <li>卫浴馆</li>
+                        <li>家装馆</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <img src="./images/b_img4.jpg" alt="123">
+                    <div class="wz">
+                        <span>车载空净半价购</span>
+                        <i>健康保价</i>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul class="clearfix">
+                        <li>
+                            <div class="top1">A家家具</div>
+                            <div class="center">领券立减50</div>
+                            <div class="bottom">
+                                <img src="./images/good13.png" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">卫浴馆</div>
+                            <div class="center">每100减20</div>
+                            <div class="bottom">
+                                <img src="./images/good14.png" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">五金电工</div>
+                            <div class="center">爆款低至七折</div>
+                            <div class="bottom">
+                                <img src="./images/good15.jpg" alt="155">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="top1">公牛钜惠日</div>
+                            <div class="center">每300减15</div>
+                            <div class="bottom">
+                                <img src="./images/good16.jpg" alt="155">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 三张图片 -->
+    <div class="imgsanz clearfix">
+        <div class="top">
+            <img src="./images/img1.jpg" alt="1">
+        </div>
+        <div class="center">
+            <img src="./images/img2.jpg" alt="1">
+        </div>
+        <div class="bottom">
+            <img src="./images/img3.jpg" alt="1">
+        </div>
+    </div>
+
+    <!-- 猜你喜欢 -->
+
+    <div class="love clearfix">
+        <div class="love_shu"></div>
+        <div class="love_wz">猜你喜欢</div>
+    </div>
+
+    <!-- 猜你喜欢 - 商品 -->
+
+    <div class="love_commodity">
+        <div class="commodity">
+            <ul class="clearfix">
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="commodity">
+            <ul class="clearfix">
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="commodity">
+            <ul class="clearfix">
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="commodity">
+            <ul class="clearfix">
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="top">
+                        <img src="./images/list_img01.jpg" alt="155">
+                    </div>
+                    <div class="center">
+                        <span>【三只松鼠_开心果100g】 休闲零食每日坚果特产炒货干果孕妇无漂白</span>
+                    </div>
+                    <div class="bottom">
+                        <span>￥</span>
+                        <span>44.90</span>
+                        <i>找相似</i>
+                    </div>
+                    <div class="love_foot">
+                        <span>秒杀</span>
+                        <span>领券88-5</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END -->
+    <div class="END">
+        <div class="END_x"></div>
+        <div class="END_z">END</div>
+    </div>
+
+    <!-- 固定标签 -->
+
+    <div class="guding">
+        <ul>
+            <li>特色优选</li>
+            <li>发现好货</li>
+            <li>服饰运动</li>
+            <li>金融阅读</li>
+            <li>猜你喜欢</li>
+            <li>顶部</li>
+        </ul>
+    </div>
+    <!-- 底部 -->
+
+    <div class="foot_1 clearfix">
+        <div class="foot_1_box">
+            <div class="font_wz1">
+                <ul>
+                    <li>购物指南</li>
+                    <li>购物流程</li>
+                    <li>支付方式</li>
+                    <li>配送方式</li>
+                </ul>
+            </div>
+            <div class="font_wz1">
+                <ul>
+                    <li>售后服务</li>
+                    <li>售后政策</li>
+                    <li>价格保护</li>
+                    <li>退款说明</li>
+                    <li>返修/退换货</li>
+                    <li>取消订单</li>
+                </ul>
+            </div>
+            <div class="font_wz1">
+                <ul>
+                    <li>配送方式</li>
+                    <li>上门自提</li>
+                    <li>211限时达</li>
+                    <li>配送服务查询</li>
+                    <li>配送费收取标准</li>
+                    <li>海外配送</li>
+                </ul>
+            </div>
+            <div class="font_wz1">
+                <ul>
+                    <li>用户帮助</li>
+                    <li>免费注册</li>
+                    <li>找回密码</li>
+                    <li>常见问题</li>
+                    <li>优惠券使用</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="foot_2">
+        <div class="foot_2_wz">
+            <span>Copyright@2010-2020 小U商城 版权所有 保留一切权力</span>
+            <br>
+            <span>京ICP备10218183 京ECP证161188号 京公网安备 11010802020593号 出版经营许可证新出发京批字第直130052号</span>
+        </div>
+    </div>
+</body>
+<script src="/js/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+</html>

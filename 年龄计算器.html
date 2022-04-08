@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        div {
+            text-align: center;
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+            background: pink;
+            font-size: 30px;
+        }
+
+        ul {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="date">
+        <ul>
+            <li>
+                年龄<br>
+                <span>00</span>
+            </li>
+            <li>
+                月<br>
+                <span>00</span>
+            </li>
+            <li>
+                天<br>
+                <span>00</span>
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("input").change(function (e) {
+            var val = $(this).val();
+            var data = Math.floor(new Date(val + " 00:00:00") / 1000);
+            var date = Math.floor(new Date() / 1000);
+            var time = Math.floor(date - data);
+            var sui = Math.floor((time / (3600 * 24)) / 365)
+            var yue = Math.floor(((time / (3600 * 24)) / 30) % 12)
+            var tian = Math.floor((time / (3600 * 24)) % 30)
+
+            $("ul>li>span").eq(0).html(sui);
+            $("ul>li>span").eq(1).html(yue);
+            $("ul>li>span").eq(2).html(tian);
+        })
+    </script>
+</body>
+
+</html>

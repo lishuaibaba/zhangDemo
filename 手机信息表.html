@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .wrap {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+
+        .top {
+            width: 60%;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+            <ul>
+                <li>姓名：<input type="text"></li>
+                <li>姓名：<input type="radio" name="sex" id="sex1" value="0" checked><label for="sex1">男</label> <input
+                        value="1" type="radio" name="sex" id="sex2"><label for="sex2">女</label></li>
+                <li>年龄：<input type="text"></li>
+                <li>兴趣爱好：<input value="s1" type="checkbox" id="c1"><label for="c1">敲代码</label><input value="s2"
+                        type="checkbox" id="c2"><label for="c2">打游戏</label><input value="s3" type="checkbox"
+                        id="c3"><label for="c3">爱运动</label></li>
+                <li><button class="btn">添加</button></li>
+            </ul>
+        </div>
+        <div class="btm">
+            <table border="1" style="width: 100%;border-spacing: 0;text-align: center;">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" class="qsIpt"></th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>兴趣爱好</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>18</td>
+                        <td>打游戏</td>
+                        <td><button>删除</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td><button class="removeBtn">删除所选</button></td>
+                </tfoot>
+            </table>
+        </div>
+        <div class="bottom"></div>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var userObj = { user: "", sex: "", age: "", xq: [], }
+        $(".btn").click(function () {
+            userObj.user = $("ul>li:nth-child(1)>input").val(); if ($($("ul>li:nth-child(2)>input")[0]).prop("checked")) { userObj.sex = "男"; } else { userObj.sex = "女"; } userObj.age = $("ul>li:nth-child(3)>input").val(); var tr = `<tr>
+                        <td><input type="checkbox"></td>
+                        <td>${userObj.user}</td>
+                        <td>${userObj.sex}</td>
+                        <td>${userObj.age}</td>
+                        <td>${userObj.xq}</td>
+                        <td><button>删除</button></td>
+                    </tr>`;
+            $("tbody").append(tr)
+        })
+        $("ul>li:nth-child(4)>input").change(function () {
+            if ($(this).prop("checked")) {
+                var c = $(this).val();
+                if (c == 's1') {
+                    userObj.xq.push("敲代码");
+                }
+                if (c == 's2') {
+                    userObj.xq.push("打游戏");
+                }
+                if (c == 's3') {
+                    userObj.xq.push("爱运动");
+                }
+            }
+        })
+
+        $("tbody").on('click', "button", function () {
+            var index = $(this).parents("tr").index();
+
+            $("tbody>tr").eq(index).remove();
+            a();
+        })
+
+        $(".removeBtn").click(function () {
+            $("tbody input").each(function () {
+                if ($(this).prop("checked")) {
+                    $(this).parents("tr").remove();
+                }
+            })
+            a();
+        })
+
+        $(".qsIpt").click(function () {
+            if ($(this).prop("checked")) {
+                $("tbody input").prop("checked", true);
+            } else {
+                $("tbody input").prop("checked", false);
+            }
+        })
+
+
+        $("tbody").on('change', "input", function () {
+            var a = $("tbody input:checked").length
+            var b = $("tbody input:checkbox").length
+            if (a == b) {
+                $(".qsIpt").prop("checked", true)
+            } else {
+                $(".qsIpt").prop("checked", false)
+            }
+        })
+
+
+        function a() {
+            if ($("tbody>tr").length == 0) {
+                $(".qsIpt").prop("checked", false)
+            }
+        }
+    </script>
+</body>
+
+</html>

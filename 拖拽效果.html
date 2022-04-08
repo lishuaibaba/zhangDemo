@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("div").mousedown(function (e) {
+            var a = e.pageY - this.offsetTop;
+            var b = e.pageX - this.offsetLeft;
+            $(this).mousemove(function (e) {
+                var x = e.pageX;
+                var y = e.pageY;
+                $(this).css({ "left": (x - b), "top": (y - a) });
+            })
+        })
+
+        $("div").mouseup(() => {
+            $("div").unbind("mousemove")
+        })
+    </script>
+</body>
+
+</html>

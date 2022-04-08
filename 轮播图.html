@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./img/reset.css">
+    <style>
+        .left {
+            width: 60px;
+            height: 80px;
+            background: url("./img/btn_show.png") no-repeat 0px -82px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -40px;
+            border: 1px solid pink;
+        }
+
+        .right {
+            width: 60px;
+            height: 80px;
+            background: url("./img/btn_show.png") no-repeat 0px 0px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -40px;
+            border: 1px solid pink;
+        }
+
+        .main {
+            width: 960px;
+            height: 320px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        ul {
+            width: 4800px;
+            height: 320px;
+            display: flex;
+            position: absolute;
+            left: 0px;
+        }
+
+        p {
+            display: flex;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #A87766;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            color: #fff;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .active {
+            background: pink;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+            <li><img src="./img/1.jpg" alt=""></li>
+        </ul>
+        <div class="left"></div>
+        <div class="right"></div>
+
+        <p>
+            <span class="active">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </p>
+        <p>
+            
+        </p>
+    </div>
+
+    <script src="./img/jquery-2.1.1.min.js"></script>
+    <script>
+        var num = 0;//记录ui滑动的距离
+        var numSpan = 0;//记录当前span的位置
+        var time = null;
+
+        time = setInterval(auto, 1000);
+
+
+        $(".right").click(function(){
+            clearInterval(time)
+            
+            auto();
+        })
+
+        function auto() {
+            num += 960;
+            numSpan++;
+            if (numSpan > 4) {
+                num = 960;
+                numSpan = 1;
+                $("ul").css({ left: 0 })
+            }
+            $("ul").animate({ left: -num })
+            $("p>span").removeClass("active");
+            $("p>span").eq(numSpan).addClass("active");
+
+            if (numSpan == 4) {
+                $("p>span").eq(0).addClass("active");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

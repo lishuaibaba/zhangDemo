@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./remScale.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 11.25rem;
+            height: 3.52rem;
+            /* overflow: hidden; */
+            position: relative;
+        }
+
+        .list {
+            height: 3.52rem;
+            width: 10000px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .list li {
+            width: 11.25rem;
+            height: 3.52rem;
+            float: left;
+        }
+
+        .list li img {
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        .wrap nav {
+            position: absolute;
+            left: 0;
+            bottom: 0.2rem;
+            width: 100%;
+            height: 0.4rem;
+            text-align: center;
+        }
+
+        .wrap nav a {
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            vertical-align: top;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .wrap nav a.active {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrap">
+        <ul class="list">
+            <li><img src="img/img1.jpg" alt=""></li>
+            <li><img src="img/img2.jpg" alt=""></li>
+            <li><img src="img/img3.jpg" alt=""></li>
+            <li><img src="img/img4.jpg" alt=""></li>
+            <li><img src="img/img1.jpg" alt=""></li>
+            <li><img src="img/img2.jpg" alt=""></li>
+            <li><img src="img/img3.jpg" alt=""></li>
+            <li><img src="img/img4.jpg" alt=""></li>
+        </ul>
+        <nav>
+            <a href="javascript:;" class="active"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </nav>
+    </section>
+    <script>
+        window.onload = function(){
+            //获取元素
+            var wrap = document.querySelector('.wrap');
+            //获取图片宽度
+            var liW = wrap.clientWidth;
+            console.log(liW);
+            //获取手指按在ul上的时候 手指距离页面左侧的距离  及  ul左侧距离父元素左侧的距离
+            var ul = document.querySelector('.list');
+            //获取所有a标签
+            var a = document.querySelectorAll('a');
+            ul.style.width = a.length*2 * liW + 'px';
+            
+            var ulL = 0;
+            var disX = 0;
+            
+            
+
+            //1.给ul设置touchstart事件
+            ul.addEventListener('touchstart',function(e){
+                e.preventDefault();
+                // console.log(e);
+                var ev = e.changedTouches[0];//获取到记录手指信息的对象
+                // console.log(ev);
+                //1.给disX和ulL两个变量重新赋值
+                ulL = this.offsetLeft;//0
+                disX = ev.pageX;//pageX就是用来记录手指距离页面左侧距离的
+                ul.style.transition = 'none';//清除过渡 防止卡顿
+                
+                //判断 
+                var n = Math.floor(ulL/liW);//如果一张图片没有完全超出就当做还没有出去  n<=0
+                if(n==0){
+                    n = a.length;
+                    ul.style.left = -n * liW + 'px';
+                    ulL = ul.offsetLeft;//-4*图宽
+                }else if(-n==a.length*2-1){
+                    //如果当前手指按在假四上  就将ul定位到真四
+                    n = a.length-1;
+                    ul.style.left = -n * liW + 'px';
+                    ulL = ul.offsetLeft;
+                }
+            })
+            //给ul绑定手指移动事件
+            ul.addEventListener('touchmove',function(e){
+                //让ul跟随手指移动定位
+                var ev = e.changedTouches[0];
+                // console.log(ev);
+                //获取手指移动事件事件对象中的pageX
+                ul.style.left = ev.pageX - disX + ulL + 'px';
+
+            })
+            //给ul绑定手指抬起事件
+            ul.addEventListener('touchend',function(e){
+                //判断当前ul移动到了什么位置  如果已经有一大半从左侧超出父元素，就将ul直接定位在下一个图片的位置   如果只有一小半超出左侧，就将ul还定位回来，回到当前图片
+                var n = Math.round(ul.offsetLeft/liW);//使用了ulL来作为被除数  ulL一直是假一图片在显示的时候ul的offsetLeft的值
+                console.log(n)
+                //设置过渡
+                ul.style.transition = 'left 0.2s'
+                //n就是当前应该将ul定位到的图片
+                ul.style.left = n*liW + 'px';
+                //小点点跟随亮起  由于小点点只有四个  但是图片有八个 因此 我们需要让小点点跟随前四个图片亮 后四个图片处理一下在亮起
+                //干掉所有人
+                for(var i=0; i<a.length; i++){
+                    a[i].className = '';
+                }
+                //复活我自己
+                // if(-n<4){
+                //     a[-n].className = 'active';
+                // }else{
+                //     var num = -n-4;//5
+                //     a[num].className = 'active';
+                // }
+                a[-n%4].className = 'active';//0,1,2,3  4,5,6,7
+
+            })
+        }
+    </script>
+</body>
+</html>

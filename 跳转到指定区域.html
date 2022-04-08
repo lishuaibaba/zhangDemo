@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .a1>li{
+            margin-left: 50px;
+        }
+        .ul1>li{
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul style="display: flex;" class="a1">
+        <li><a href="#li1">a1</a></li>
+        <li><a href="#li2">a2</a></li>
+        <li><a href="#li3">a3</a></li>
+        <li><a href="#li4">a4</a></li>
+        <li><a href="#li5">a5</a></li>
+        <li><a href="#li6">a6</a></li>
+        <li><a href="#li7">a7</a></li>
+        <li><a href="#li8">a8</a></li>
+        <li><a href="#li9">a9</a></li>
+        <li><a href="#li10">a10</a></li>
+    </ul>
+    <ul class="ul1">
+
+    </ul>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var str = ``;
+        for (var i = 0; i < 10; i++) {
+            str += `<li id="li${i+1}">a${i+1}</li>`
+        }
+        $(".ul1").append(str);
+    </script>
+</body>
+
+</html>

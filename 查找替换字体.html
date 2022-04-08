@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        被替换1 <input type="text"> 替换 <input type="text"> <button>替换</button>
+    </div>
+    <div style="width:500px;border: 10px solid red;margin-top: 30px;" class="text">
+        这是安华大厦可乐喝多了卡卡是你，去么我弄小组从iu哦啊速度阿喀琉斯绝对路径选择从iu哦i啊雕塑埃里克森大家阿斯顿啊实打实的卢卡斯觉得卢卡斯觉得卡拉就少得可怜急啊离开大囧星座iu阿斗i所驱蚊器生的空间爱好也在西欧粗有哦收到
+        这是安华大厦可乐喝多了卡卡是你，去么我弄小组从iu哦啊速度阿喀琉斯绝对路径选择从iu哦i啊雕塑埃里克森大家阿斯顿啊实打实的卢卡斯觉得卢卡斯觉得卡拉就少得可怜急啊离开大囧星座iu阿斗i所驱蚊器生的空间爱好也1在西欧粗有哦收到
+        这是安华大厦可乐喝多了卡卡是你，去么我弄小组从iu哦啊速度阿喀琉斯绝对路径选择从iu哦i啊雕塑埃里克森大家阿斯顿啊实打实的卢卡斯觉得卢卡斯觉得卡拉就少得可怜急啊离开大囧星座iu阿斗i所驱蚊器生的空间爱好也在西欧粗有哦收到
+        这是安华大厦可乐喝多了卡卡是你，去么我弄小组从iu哦啊速度阿喀琉斯绝对路径选择从iu哦i啊雕塑埃里克森大家阿斯顿啊实打实的卢卡斯觉得卢卡斯觉得卡拉就少得可怜急啊离开大囧星座iu阿斗i所驱蚊器生的空间爱好也在西欧粗有哦收到
+        这是安华大厦可乐喝多了卡卡是你，去么我弄小组从iu哦啊速度阿喀琉斯绝对路径选择从iu哦i啊雕塑埃里克森大家阿斯顿啊实打实的卢卡斯觉得卢卡斯觉得卡拉就少得可怜急啊离开大囧星座iu阿斗i所驱蚊器生的空间爱好也在西欧粗有哦收到
+        这是安华大厦可乐喝多了卡卡是你，去么我弄小组从iu哦啊速度阿喀琉斯绝对路径选择从iu哦i啊雕塑埃里克森大家阿斯顿啊实打实的卢卡斯觉得卢卡斯觉得卡拉就少得可怜急啊离开大囧星座iu阿斗i所
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        $("button").click(function () {
+            var a = $("div>input").eq(0).val();
+            var b = $("div>input").eq(1).val();
+
+            var str = $(".text").html();
+            var str1 = $(".text").html();
+            var n = (str1.split(a)).length - 1; //定义查找的对象为 0
+            console.log(n);
+            for (var i = 0; i < n; i++) {
+                str = str.replace(a, `<span style="background:blue">${b}</span>`);
+            }
+            $(".text").html(str);
+        })
+
+        console.log("hello word")
+    </script>
+</body>
+
+</html>

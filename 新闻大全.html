@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        body {
+            font-size: 26px;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0px auto;
+            margin-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        ul span {
+            display: block;
+        }
+
+        ul span:nth-child(2) {
+            width: 500px;
+        }
+
+        ul span:nth-child(1) {
+            width: 500px;
+            margin-top: 30px;
+        }
+
+        .ul_box .text_div {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .add {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: lightblue;
+            cursor: pointer;
+        }
+
+        a {
+            color: #000;
+        }
+
+
+        .text_img {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .text_img>img {
+            width: 200px;
+            margin-right: 20px;
+        }
+
+        .ul_box>i {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .content>li {
+            padding: 10px;
+        }
+
+        .content>li:hover {
+            box-shadow: 3px 3px 10px 1px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="add">刷新一下</div>
+        <ul class="content">
+
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        function xinwen() {
+            let promi = new Promise((resolve, reject) => {
+                $.ajax({
+                    url: "./FeHelper-20211222093111.json", // http://v.juhe.cn/toutiao/index
+                    type: "get",
+                    data: {
+                        key: "ac67770cdfa771897f9c29865b81e421",
+                        type: "guonei",
+                    },
+                    jsonp: "json",
+                    success(res) {
+                        resolve(res);
+                    }
+                })
+            })
+            return promi;
+        }
+
+        // 处理笑话数据回来
+        async function auto() {
+            let obj = await xinwen();
+            xiaohuazhanshi(obj.result.data);
+        }
+        auto();
+
+        // 处理笑话展示
+        function xiaohuazhanshi(arr) {
+            let str = ``;
+            for (let i = 0; i < arr.length; i++) {
+                str += `<li>
+                    <div class="ul_box">
+                <span>时间：${arr[i].date}</span>
+                <i>报社：${arr[i].author_name}</i>
+                <a href="${arr[i].url}" target="_blank">
+                    <div class="text_div"><i>标题：</i><span>${arr[i].title}</span></div>
+                    <div class="text_img"><img img_src="${arr[i].thumbnail_pic_s}" src="#" alt=""><img img_src="${arr[i].thumbnail_pic_s02}" src="#" alt=""><img img_src="${arr[i].thumbnail_pic_s03}"
+                            src="#" alt=""></div>
+                </a>
+            </div>
+                        </li>`
+            }
+
+            $(".content").append(str);
+
+            imgAuto();
+        }
+
+        $(".add").click(function () {
+
+        })
+
+        $(document).scroll(function () {
+            imgAuto();
+        })
+
+        function imgAuto() {
+            let top = (document.documentElement.clientHeight || document.body.clientHeight) + (document.documentElement.scrollTop || document.body.scrollTop);
+            console.log(top);
+
+            $("img").each((index, item) => {
+                if (top > item.offsetTop) {
+                    $(item).attr("src", $(item).attr("img_src"))
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        li {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: red;
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 30px;
+        }
+
+        ul {
+            display: flex;
+            margin-top: 50px;
+        }
+
+        .a1 {
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a1"><button>开始</button> <button>停止</button></div>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var a = 0;
+        $(".a1 button").eq(0).click(function () {
+            setInterval(function () {
+                var num = Math.floor(Math.random() * 100);
+                for(var i = a;i<$("ul>li").length;i++){
+                    $("ul>li").eq(i).html(num);
+                }
+            }, 30)
+        })
+
+
+        $(".a1 button").eq(1).click(function(){
+            setTimeout(function(){
+                a++;
+            },1500)
+        })
+    </script>
+</body>
+
+</html>

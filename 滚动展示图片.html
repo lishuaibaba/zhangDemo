@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css" />
+    <style>
+        ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .box>ul>li:nth-child(1)>img {
+            width: 300px;
+            height: 300px;
+            float: right;
+        }
+
+        .box>ul>li:nth-child(3)>img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .box>ul:nth-child(2)>li:nth-child(3)>img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .box>ul>li:nth-child(1)>img {
+            width: 300px;
+            height: 300px;
+            float: right;
+
+        }
+
+        .box>ul:nth-child(2)>li:nth-child(4)>img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .box>ul>li:nth-child(1)>img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .box>ul:nth-child(3)>li:nth-child(2)>img {
+            width: 300px;
+            height: 300px;
+            float: right;
+
+        }
+
+        img {
+            display: none;
+        }
+    </style>
+</head>
+
+<body style="height: 10000px;">
+    <div class="box">
+        <ul>
+            <li><img class="animate__slideInLeft" src="./img/2.jpg" alt=""></li>
+            <li><img class="animate__slideInRight" src="./img/1.jpg" alt=""></li>
+            <li><img class="animate__slideInRight" src="./img/3.jpg" alt=""></li>
+            <li><img class="animate__slideInLeft" src="./img/4.jpg" alt=""></li>
+        </ul>
+        <ul>
+            <li><img class="animate__slideInRight" src="./img//img/0.JPG" alt=""></li>
+            <li><img class="animate__slideInDown" src="./img//img/1.JPG" alt=""></li>
+            <li><img class="animate__slideInRight" src="./img//img/2.JPG" alt=""></li>
+            <li><img class="animate__slideInDown" src="./img//img/3.JPG" alt=""></li>
+            <li><img class="animate__slideInLeft" src="./img//img/4.JPG" alt=""></li>
+        </ul>
+        <ul>
+            <li><img class="animate__slideInRight" src="./img/img1.jpg" alt=""></li>
+            <li><img class="animate__slideInDown" src="./img/img2.jpg" alt=""></li>
+            <li><img class="animate__slideInDown" src="./img/img3.jpg" alt=""></li>
+            <li><img class="animate__slideInLeft" src="./img/img4.jpg" alt=""></li>
+        </ul>
+
+        <ul>
+            <li><img class="animate__slideInDown" src="./img/1.jpg" alt=""></li>
+            <li><img class="animate__slideInLeft" src="./img/2.jpg" alt=""></li>
+            <li><img class="animate__slideInRight" src="./img/3.jpg" alt=""></li>
+            <li><img class="animate__slideInDown" src="./img/4.jpg" alt=""></li>
+        </ul>
+        <ul>
+            <li><img class="animate__slideInDown" src="./img/1.jpg" alt=""></li>
+            <li><img class="animate__slideInRight" src="./img/2.jpg" alt=""></li>
+            <li><img class="animate__slideInLeft" src="./img/3.jpg" alt=""></li>
+            <li><img class="animate__slideInUp" src="./img/4.jpg" alt=""></li>
+        </ul>
+        <ul>
+            <li><img class="animate__slideInDown" src="./img/img1.jpg" alt=""></li>
+            <li><img class="animate__slideInRight" src="./img/img2.jpg" alt=""></li>
+            <li><img class="animate__slideInLeft" src="./img/img3.jpg" alt=""></li>
+            <li><img class="animate__slideInDown" src="./img/img4.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        let arrLi = $("li");
+        $("img").addClass("animate__animated");
+
+        $(document).scroll(function () {
+            auto();
+        })
+
+        auto();
+
+        function auto() {
+
+            let height = document.documentElement.clientHeight + document.documentElement.scrollTop;
+
+            for (let i = 0; i < arrLi.length; i++) {
+                if (arrLi[i].offsetTop < height) {
+                    $(arrLi[i]).children("img").css({
+                        "display":"block"
+                    })
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

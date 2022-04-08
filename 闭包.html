@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>text</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <!-- <script>
+        var fun = function(){
+            var a = 10;
+
+            var fun1 = function(){
+                a++;
+                console.log(a);
+            }
+
+            return fun1;
+        }
+
+        var fn = fun();
+        fn();
+        fn();
+        fn();   
+    </script> -->
+    <script src="./jquery-2.1.1.min.js"></script>
+    <!-- <script>
+        var lis = document.querySelectorAll("li");
+        for (let i = 0; i < $("li").length; i++) {
+            lis[i].onclick = function () {
+                if ($(this).attr("class") == "active") {
+                    $(this).removeClass("active");
+                } else {
+                    $(this).addClass("active");
+                }
+            }
+        }
+
+    </script> -->
+    <!-- <script>
+        function to(n) {
+            var obj = new Object();
+            obj.age = 20;
+            var name = n;
+
+            obj.getname = function () {
+                return name;
+            }
+            obj.setname = function (val) {
+                name = val;
+            }
+
+            return obj;
+        }
+        let a = to("张先生");
+        console.log(a);
+        console.log(a.getname());
+        console.log(a.setname("哈哈"));
+        console.log(a.getname());
+    </script> -->
+    <script>
+        // var arr = [];
+        // for (var i = 0; i < 10; i++) {
+        //     arr.push(function(){
+        //         console.log(i);
+        //     })
+        // }
+        // arr[6]();
+
+        // function fun(n, o) {
+        //     console.log(o);
+        //     return {
+        //         fun: function (m) {
+        //             return fun(m, n);
+        //         }
+        //     }
+        // }
+
+        // var a = fun(0);
+        // a.fun(1)
+        // a.fun(2)
+        // a.fun(3)
+
+        for (var i = 0; i < 5; i++) {
+            setTimeout(() => {
+                console.log(i, new Date());
+            },1000)
+        }
+        console.log(i, new Date());
+
+    </script>
+</body>
+
+</html>

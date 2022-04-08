@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <script src="./jquery-2.1.1.min.js"></script>
+    <style>
+        .main {
+            width: 1200px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <button class="btn">添加</button>
+        <ul>
+            <li>
+                <span>名字1</span>
+                <button class="domw">上</button>
+                <button class="xia">下</button>
+            </li>
+            <li>
+                <span>名字2</span>
+                <button class="domw">上</button>
+                <button class="xia">下</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $("ul").on("click", ".domw", function () {
+            let c = $(this).parents("li").prev();
+            if (c[0] == undefined) {
+                return;
+            }
+            let a = $(this).parents("li").remove();
+            let text = $(a).children("span").text();
+            let str = ``;
+            str = `<li><span>${text}</span> <button class="domw">上</button>
+                <button class="xia">下</button></li>`
+            c.before(str);
+        })
+
+
+
+        $("ul").on("click", ".xia", function () {
+            let c = $(this).parents("li").next();
+            if (c[0] == undefined) {
+                return;
+            }
+            let a = $(this).parents("li").remove();
+            let text = $(a).children("span").text();
+            let str = ``;
+            str = `<li><span>${text}</span> <button class="domw">上</button>
+                <button class="xia">下</button></li>`
+            c.after(str);
+        })
+
+
+        $(".btn").click(function () {
+            let index = $("ul>li").length;
+            let str = ``;
+            str = `<li><span>名字${index + 1}</span> <button class="domw">上</button>
+                <button class="xia">下</button></li>`
+            $("ul").append(str);
+        })
+    </script>
+</body>
+
+</html>

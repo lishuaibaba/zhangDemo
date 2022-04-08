@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        ul {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <img src="./img/img/0.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/0.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/colon.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/0.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/0.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/colon.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/0.JPG" alt="">
+            </li>
+            <li>
+                <img src="./img/img/0.JPG" alt="">
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        auto();
+        setInterval(auto, 1000)
+        function auto() {
+            var date = new Date();
+            var s = date.getHours().toString();
+            var f = date.getMinutes().toString();
+            var m = date.getSeconds().toString();
+            var a = s.split("");
+            var b = f.split("");
+            var c = m.split("");
+            if (a.length < 2) {
+                a.unshift("0")
+            }
+            if (b.length < 2) {
+                b.unshift("0")
+            }
+            if (c.length < 2) {
+                c.unshift("0")
+            }
+
+            $($("img")[0]).attr("src", `./img/img/${a[0]}.JPG`)
+            $($("img")[1]).attr("src", `./img/img/${a[1]}.JPG`)
+
+            $($("img")[3]).attr("src", `./img/img/${b[0]}.JPG`)
+            $($("img")[4]).attr("src", `./img/img/${b[1]}.JPG`)
+
+            $($("img")[6]).attr("src", `./img/img/${c[0]}.JPG`)
+            $($("img")[7]).attr("src", `./img/img/${c[1]}.JPG`)
+            
+        }
+    </script>
+</body>
+
+</html>

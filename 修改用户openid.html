@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery-2.1.1.min.js"></script>
+
+    <script>
+        $.ajax({
+            url:"http://101.200.140.68:2022/Service.asmx/UpdataOpenIdAndPhoneNumByCustCode",
+            type:"get",
+            data:{
+                pCustCode:"测试0000001",//测试0000001
+                openId:"",
+                phoneNum:"15089546929",
+            },
+            success: (res) => {
+                var str = $(res).children()[0].innerHTML;
+                console.log(str);
+            },
+            error: (req) => {
+            }
+        })
+    </script>
+</body>
+
+</html>

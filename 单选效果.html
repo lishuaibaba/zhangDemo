@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        div {
+            width: 200px;
+            height: 30px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 0;
+            text-indent: 10px;
+        }
+
+        ul {
+            width: 200px;
+            height: 30px;
+            margin: 0px auto;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+        }
+
+        ul>li {
+            width: 200px;
+            height: 30px;
+            border: 1px solid #000;
+            border-top: none;
+            text-indent: 10px;
+        }
+
+
+        .activeShow {
+            background: rgb(250, 217, 71);
+            color: #fff;
+        }
+
+        .active {
+            background: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>java</li>
+        <li>c++</li>
+    </ul>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script>
+        var show = false;
+
+        $("div").click(function () {
+            if (show) {
+                $("ul").css({ display: "none" })
+                show = false;
+            } else {
+                $("ul").css({ display: "block" })
+                show = true;
+            }
+        })
+
+        $("li").on("mouseover", function () {
+            $("li").removeClass("active");
+            $(this).addClass("active");
+        })
+
+
+        $("li").on("click", function () {
+            show = false;
+            $("ul").css({ display: "none" })
+            var text = $(this).html();
+            $("div").html(text);
+            $("li").removeClass("activeShow");
+            $(this).removeClass("active");
+            $(this).addClass("activeShow");
+        })
+    </script>
+</body>
+
+</html>

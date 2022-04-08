@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn1(a) {
+            var p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    var objArr = [a, 1, 2, 3, 4, 5, 6, 7, 8, '我返回数据了'];
+                    resolve(objArr);
+                }, 3000)
+            })
+            return p;
+        }
+
+
+
+        async function fn2() {
+            try {
+                var tar = await fn1("还好");
+                console.log(tar);
+            } catch(error) {
+                console.log(error);
+            }
+        }
+
+        fn2();
+    </script>
+</body>
+
+</html>

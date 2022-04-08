@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery-2.1.1.min.js"></script>
+    <script src="./class语法ajax封装.js"></script>
+    <script>
+        // class Car {
+        //     static whele = '123';
+        //     static xixil = '321';
+        //     constructor(){
+
+        //     }
+        //     run(){
+                
+        //     } 
+        // }
+
+        // console.log(Car.whele);
+        // console.log(Car.xixil);
+
+
+        // class Animal {
+        //     static type = "动物";
+        //     nickname;
+        //     leg;
+        //     constructor(a,b){
+        //         this.nickname = a;
+        //         this.leg = b;
+        //     }
+        //     run(){
+        //         console.log(`${this.leg}条腿跑`);
+        //         console.log(this);
+        //     }
+        //     static eat(){
+        //         console.log(`${this.type}吃饭`); 
+        //         console.log(this);
+        //     }
+        // }
+
+        // let a = new Animal("旺财",'4');
+        // a.run();
+        // Animal.eat();
+
+
+
+        // class Adminl {
+        //     static whlel = "动物";
+        //     constructor(c){
+        //         console.log(c,'ccc');
+        //     }
+        //     static eat(){
+        //         console.log("吃东西");
+        //     }
+        // }
+
+        // class Dog extends Adminl{
+        //     b;
+        //     constructor(a){
+        //         super(a);
+        //         this.b = a;
+        //     }
+        //     static aa(){ 
+        //         console.log(this);
+        //     }
+        // }
+
+        // Dog.eat();
+        // var a = new Dog(1);
+        async function a(){
+            let {c=[]} = await Http.banner();
+            b(c);
+            let {d=[]} = await Http.filelis();
+            f(d);
+        }
+
+        function b(res){
+            console.log(res);
+        }
+
+        function f(res){
+            console.log(res);
+        }
+        
+        
+    </script>
+</body>
+
+</html>
